@@ -1,12 +1,19 @@
-export default function Home(){
 
-    return(
-        <div>
+import Matchlist from '../components/Matchlist'
 
 
-            kul
-        </div>
+export default function Home() { 
+
+
+    return (         
+       <section className='home-container'>
         
+
+        <Matchlist />
+       
+
+
+       </section>
     )
-}
+};
 
