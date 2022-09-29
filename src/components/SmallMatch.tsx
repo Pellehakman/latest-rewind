@@ -1,16 +1,16 @@
 import { useState } from 'react'
 import { Match } from '../models/data';
 import '../styles/SmallMatch.scss'
-import BigMatch from './BigMatch'
 
-interface MatchCardProps {
-    match: Match;
-   
-};
 
-export default function SmallMatch(props: MatchCardProps) {
-    
+type Props = {
+    match: Match
+    matches: Match[];
+    setMatches: React.Dispatch<React.SetStateAction<Match[]>>
+}
 
+const SmallMatch = ({match, matches, setMatches}: Props) => { 
+    const LOCAL_STORAGE_KEY = "matches" 
     const [overlay, setOverlay] = useState<boolean>(false);
     const [hide, setHide] = useState<boolean>(true);
 
@@ -18,12 +18,20 @@ export default function SmallMatch(props: MatchCardProps) {
     setHide(!hide);
     setOverlay(!overlay);
 }
-
+    const handleDelete = (matchId: number) => {
+    setMatches(matches.filter((match) => match.matchId !== matchId))
+}
     
     return(
-        <section className='small-match-conainer' onClick={handleBigMatchOverlay}>
+        <section className='small-match-conainer' >
+             {hide && <div className='single-match'> 
+            <button onClick={handleBigMatchOverlay}>VIEW GAME</button>
+            <form >
 
-            {hide && <div className='single-match'> 
+            </form>
+            <span>
+                {match.match}
+            </span>
 
             
             
@@ -32,8 +40,17 @@ export default function SmallMatch(props: MatchCardProps) {
             
             </div>}
             
-            {overlay && <BigMatch/>}
-
-        </section>
+            {overlay && 
+            //---------------//BIG CARD---------------//
+            <div className='big-match-container'>
+            {match.matchId}
+            
+            
+            <button onClick={() => handleDelete(match.matchId)}>delete</button>
+            <button onClick={handleBigMatchOverlay}>CLOSE</button>
+            </div>}
+            </section>
     )
 }
+
+export default SmallMatch

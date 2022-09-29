@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import AddMatch from '../components/AddMatch';
 import Matchlist from '../components/Matchlist'
 import SmallMatch from '../components/SmallMatch';
@@ -8,8 +8,11 @@ import '../styles/Home.scss'
 
 
 export default function Home() { 
+    const [overlay, setOverlay] = useState<boolean>(false);
     const [match, setMatch] = useState<string>("")
     const [matches, setMatches] = useState<Match[]>([])
+    const LOCAL_STORAGE_KEY = "matches"
+
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
@@ -19,30 +22,22 @@ export default function Home() {
         setMatch("");
     }
   };
-    console.log(matches)
-
-
-
-    const [overlay, setOverlay] = useState<boolean>(false);
-
+  
+  
     const handleAddMatchOverlay: () => void = () => {
     setOverlay(!overlay);}
-
-
-
 
     return (         
        <section className='home-container'>
         
 
-        {/* <Matchlist /> */}
+       
 
         <button onClick={handleAddMatchOverlay}>ADD MATCH</button >
-        {overlay && <AddMatch match={match} setMatch={setMatch} handleSubmit={handleSubmit} />}   
-        <SmallMatch/>   
-        {matches.map((t) =>(
-            <li>{t.match}</li>
-        ))}
+        {overlay && <AddMatch match={match} setMatch={setMatch} handleSubmit={handleSubmit} />}         
+        <Matchlist matches={matches} setMatches={setMatches}  />
+
+
 
         
        
