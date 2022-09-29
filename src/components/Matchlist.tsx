@@ -1,15 +1,25 @@
+import AddMatch from "./AddMatch"
+import SmallMatch from "./SmallMatch"
+import '../styles/MatchList.scss'
 
 
-const DisplayMatch = () => {
+const MatchList = () => {
     return(
+    <div className="match-list-container">
+        <header>This is Matchlist</header>
 
-        <>
-        ge4g
+        <AddMatch />
+
+        <SmallMatch/>
+
+
+
+
         
-        </>
+    </div>
     )
 }
   
 
 
-    export default DisplayMatch
+    export default MatchList

@@ -1,5 +1,6 @@
 
 import Matchlist from '../components/Matchlist'
+import '../styles/Home.scss'
 
 
 export default function Home() { 
