@@ -1,39 +1,21 @@
 import AddMatch from "./AddMatch"
 import SmallMatch from "./SmallMatch"
 import '../styles/MatchList.scss'
-
-
-const MatchList = () => {
-
-    const [ overlay, setOverlay] = (false)
+import React, { useState } from "react";
+import { Match } from '../models/data'
 
 
 
-const handleAddMatchOverlay: () => void = () => {
-    console.log('bög')
-
-
-}
+const MatchList: React.FC = () => { 
 
 
 
     return(
     <div className="match-list-container">
         <header>This is Matchlist</header>
-        <button onClick={handleAddMatchOverlay}>ADD MATCH</button >
-
-        <AddMatch />
-
-        <SmallMatch/>
-
-
-
-
         
     </div>
     )
 }
   
-
-
-    export default MatchList
+export default MatchList

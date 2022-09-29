@@ -1,29 +1,39 @@
 import { useState } from 'react'
+import { Match } from '../models/data';
 import '../styles/SmallMatch.scss'
 import BigMatch from './BigMatch'
 
+interface MatchCardProps {
+    match: Match;
+   
+};
 
-function SmallMatch(){
-    const [overlay, setOverlay] = useState(false)
+export default function SmallMatch(props: MatchCardProps) {
+    
 
+    const [overlay, setOverlay] = useState<boolean>(false);
+    const [hide, setHide] = useState<boolean>(true);
 
-    const handleOverlay: () => void = () =>{
-        setOverlay(overlay)
-        
-    }
+    const handleBigMatchOverlay: () => void = () => {
+    setHide(!hide);
+    setOverlay(!overlay);
+}
 
     
     return(
-    <div className='small-match-conatiner' onClick={handleOverlay}>
-        <header>this is Small Match</header>
+        <section className='small-match-conainer' onClick={handleBigMatchOverlay}>
 
-        <BigMatch />
-        
+            {hide && <div className='single-match'> 
 
-    </div>
+            
+            
+            
+            
+            
+            </div>}
+            
+            {overlay && <BigMatch/>}
+
+        </section>
     )
 }
-  
-
-
-    export default SmallMatch
