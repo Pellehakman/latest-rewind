@@ -1,33 +1,36 @@
-
-import { useSelector } from 'react-redux'
-import { RootState } from '../store'
+import AddMatch from "./AddMatch"
+import SmallMatch from "./SmallMatch"
 import '../styles/MatchList.scss'
-import SmallMatch from './SmallMatch'
+import React, { useState } from "react";
+import { Match } from '../models/data'
 
 
-const MatchList = () =>{
-
-
-// const matches = useSelector((state: RootState) => state.match)
-
-
-    return(
-        <div className="match-list-container">
-        <header>This is Matchlist</header>
-        
-            <SmallMatch />
-        
-        
-    </div>
-  
-
-    )
-
+interface Props{
+    matches: Array<Match>;
+    setMatches: React.Dispatch<React.SetStateAction<Match[]>>
 }
 
 
-export default MatchList
 
+const MatchList: React.FC<Props> = ({matches, setMatches }) => {
 
     
-    
+
+
+
+    return(
+    <div className="match-list-container">
+        <header>This is Matchlist</header>
+        {matches.map(match => (
+            <SmallMatch 
+            match={match} 
+            key={match.matchId}
+            matches={matches}
+            setMatches={setMatches} />
+        ))}
+        {/* <SmallMatch  /> */}
+    </div>
+    )
+}
+  
+export default MatchList;

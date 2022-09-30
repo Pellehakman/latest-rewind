@@ -1,7 +1,8 @@
-
-
-export interface Match {  
-	teamOne: string;
-    teamTwo: string;
+export interface Match{
+    
     matchId: number;
-};
+    teamOne: string;
+    teamTwo: string
+    
+    
+}
