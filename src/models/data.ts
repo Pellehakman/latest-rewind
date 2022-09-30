@@ -1,7 +1,7 @@
 export interface Match{
     
     matchId: number;
-    match:string;
+    match: string;
     win: boolean;
     
 }

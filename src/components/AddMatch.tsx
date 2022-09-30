@@ -8,20 +8,11 @@ interface Props {
     match: string;
     setMatch: React.Dispatch<React.SetStateAction<string>>
     handleSubmit: (e: React.FormEvent) => void
+    handleInput: any
+
 };
 
-const AddMatch: React.FC<Props> = ({match, setMatch, handleSubmit}) => {
-
-
-    // const handleAddMatchInput: (e:any) => void = (e:any) => {
-
-    // };
-
-    // const handleSubmit: (e:any) => void = (e:any) => {
-    //     e.preventDefault()
-        
-
-    // }
+const AddMatch: React.FC<Props> = ({setMatch, handleSubmit, handleInput}) => {
 
 
 
@@ -31,7 +22,7 @@ const AddMatch: React.FC<Props> = ({match, setMatch, handleSubmit}) => {
         <header>This is AddMatch</header>
 
 
-        <input type="text" id='matchName' name='matchName' placeholder='Matchname' required onChange={(e) => setMatch(e.target.value)} />
+        <input type="text" id='match' name='match' placeholder='match' required onChange={(e) => handleInput(e)} />
 
         <input type="submit" />
 
