@@ -12,7 +12,7 @@ type Props = {
 }
 
 const SmallMatch = ({match, matches, setMatches}: Props) => { 
-    const games = useSelector((state: RootState) => state.match);
+   
     console.log('this match', match)
    
     const [overlay, setOverlay] = useState<boolean>(false);

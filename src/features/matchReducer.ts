@@ -1,9 +1,9 @@
 import { createAction, createReducer } from '@reduxjs/toolkit';
 import { Match } from '../models/data';
 
-const initialState : Match = {teamOne: '', matchId: 0};
+const initialState : Match = {teamOne: '', teamTwo: '', matchId: 0};
 
-const addMatch = createAction<Match>('Add user');
+const addMatch = createAction<Match>('Add Match');
 
 const actions = { addMatch };
 

@@ -7,6 +7,7 @@ import SmallMatch from '../components/SmallMatch';
 import { actions as matchActions } from '../features/matchReducer'
 import { Match } from '../models/data';
 import '../styles/Home.scss'
+import useLocalStorage from '../components/hooks/use-local-storage';
 
 interface Props {
     match: Match;
@@ -16,7 +17,8 @@ interface Props {
 const Home: React.FC<Props> = () => { 
     const [overlay, setOverlay] = useState<boolean>(false);
     // const [match, setMatch] = useState<string>('')
-    const [matches, setMatches] = useState<Match[]>([])
+    const [matches, setMatches] = useLocalStorage<Match[]>('matches',[])
+    // const [matches, setMatches] = useState<Match[]>([])
        
     const [teamOne, setTeamOne] = useState<string>("")
     const [teamTwo, setTeamTwo] = useState<string>("")
@@ -52,10 +54,6 @@ const handleTeamTwoInput: (e:any) => void = (e:any) =>{setTeamTwo(e.target.value
 
     return (         
        <section className='home-container'>
-        {/* <button onClick={sendAll}>SEND IT</button> */}
-        
-
-       
 
         <button onClick={handleAddMatchOverlay}>ADD MATCH</button >
         {overlay && 
