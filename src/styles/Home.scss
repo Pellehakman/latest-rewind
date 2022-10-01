@@ -1,9 +1,19 @@
+@use 'variables';
+
+
 .home-container{
-    width: 30rem;
-    height: 40rem;
-    background-color: rgb(51, 51, 51);
+    @include variables.flexContainer(row);
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    background-color: rgb(22, 112, 112);
+    
 }
-.add-match{
-    height: 9rem;
-    background-color: rgb(70, 6, 6);
+
+
+
+.display-match-container{
+    height: 15rem;
+    background-color: rgb(55, 74, 142);
+    transition: all 1s;
 }

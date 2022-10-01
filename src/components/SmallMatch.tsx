@@ -29,7 +29,7 @@ const handlePlayer:  () => void = () => {
     
     return(
         <section className='small-match-conainer' >
-             {hide && <div className='single-match'> 
+             {hide && <div className='match'> 
             <button onClick={handleBigMatchOverlay}>VIEW GAME</button>
             <form >
 

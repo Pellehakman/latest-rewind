@@ -1,14 +1,22 @@
+@use 'variables';
 
+.match{
+    @include variables.flexContainer(row);
+    justify-content: space-between;
+    align-items: center;
+    background-color: variables.$white-bg;
 
-.single-match{
-    height: 4rem;
-    background-color: rgb(94, 28, 28);
-    margin-bottom: 1rem;
+    
+    margin-bottom: 1rem
+    
+}
+
+.match-date-container{
+    @include variables.flexContainer();
+    align-items: center;
 
 }
 
-.big-match-container{
-    height: 8rem;
-    background-color: rgb(26, 21, 70);
-
+.small-overlay{
+    @include variables.flexContainer(row);
 }

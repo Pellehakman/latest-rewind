@@ -1,0 +1,58 @@
+$add-bg: #85A37B;
+$win-bg: #75B4D8;
+$loose-bg: #B95B5B;
+$edit-bg: #FF9900;
+$container-bg: #e6e6e6;
+$white-bg: #FFFFFF;
+$black-bg: #000000;
+
+$hero-text-color: #dad0ee;
+$primary-font: 'Roboto', sans-serif;
+$header-font: 'Jost', sans-serif;
+$box-shadow: 9px 10px 0px rgba(0, 0, 0, 0.34);
+$mobile-card-width: 90vw;
+
+body{
+    margin: 0;
+    background-color: rgb(240, 240, 240);   
+}
+.app{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+   
+}
+@mixin headerFont {
+font-family: $primary-font;
+font-size: 1.4em;
+font-weight: 700;
+color: $white-bg;
+    
+}
+@mixin flexContainer($dir: column) {
+    display: flex;
+    flex-direction: $dir;
+}
+
+@mixin columnSize() {
+    align-items: center;
+    height: 3rem;
+}
+
+@mixin addBtn() {
+    border: none;
+    padding: 0 1rem 0 1rem;
+    font-family: $primary-font;
+    height: 100%;
+    font-size: .6em;
+    font-weight: 700;
+    background-color: $add-bg;
+    color: $white-bg;
+    transition: .1s all;
+	cursor: pointer;
+	&:hover {
+		transform: scale(110%);
+	}
+}

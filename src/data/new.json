@@ -1,0 +1,53 @@
+ [{
+     "matchId": 1364627699365,
+     "teams": [{
+         "teamOne": [{
+             "teamName": "blue",
+             "players": [{
+                     "playerOne": "PHWAKMAN",
+                     "kills": 20,
+                     "deaths": 3
+                 },
+                 {
+                     "playerOne": "EKKANN",
+                     "kills": 30,
+                     "deaths": 6
+                 },
+                 {
+                     "playerOne": "LIRAPUB",
+                     "kills": 30,
+                     "deaths": 6
+                 },
+                 {
+                     "playerOne": "JEPPEZA",
+                     "kills": 30,
+                     "deaths": 6
+                 }
+             ]
+         }],
+         "teamTwo": [{
+             "teamName": "red",
+             "players": [{
+                     "playerOne": "TGLTN",
+                     "kills": 20,
+                     "deaths": 3
+                 },
+                 {
+                     "playerOne": "HWINN",
+                     "kills": 30,
+                     "deaths": 6
+                 },
+                 {
+                     "playerOne": "SHRIMZY",
+                     "kills": 30,
+                     "deaths": 6
+                 },
+                 {
+                     "playerOne": "M1ME",
+                     "kills": 30,
+                     "deaths": 6
+                 }
+             ]
+         }]
+     }]
+ }]
