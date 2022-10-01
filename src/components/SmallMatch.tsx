@@ -12,16 +12,12 @@ type Props = {
 }
 
 const SmallMatch = ({match, matches, setMatches}: Props) => { 
-   
-    console.log('this match', match)
-   
+
     const [overlay, setOverlay] = useState<boolean>(false);
     const [hide, setHide] = useState<boolean>(true);
    
-
     const handleBigMatchOverlay: () => void = () => {
-    setHide(!hide);
-    setOverlay(!overlay);
+    setHide(!hide); setOverlay(!overlay);
 }
     const handleDelete = (matchId: number) => {
     setMatches(matches.filter((match) => match.matchId !== matchId))

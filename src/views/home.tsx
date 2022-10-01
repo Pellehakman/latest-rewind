@@ -26,6 +26,9 @@ const Home: React.FC<Props> = () => {
 
     const [matches, setMatches] = useLocalStorage<Match[]>('matches',[])
 
+
+
+
        
     const [teamOne, setTeamOne] = useState<string>("")
     const [teamTwo, setTeamTwo] = useState<string>("")
@@ -41,12 +44,14 @@ const handleTeamTwoInput: (e:any) => void = (e:any) =>{setTeamTwo(e.target.value
 
    const handleSubmit: (e:any) => void = (e:any) => {
     e.preventDefault();
-    setMatches([...matches, { matchId: Date.now(), teamOne, teamTwo }]);
+    setMatches([...matches, { matchId: Date.now(), teamOne, teamTwo }].sort((a, b) => {
+        return b.matchId - a.matchId;}));
     
   
         
   };
-  
+    
+    
   
     const handleAddMatchOverlay: () => void = () => {
     setOverlay(!overlay);}
