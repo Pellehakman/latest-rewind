@@ -13,47 +13,44 @@ import AddPlayer from '../components/AddPlayer';
 
 interface Props {
     match: Match;
-    
 };
 
 const Home: React.FC<Props> = () => { 
     const [overlay, setOverlay] = useState<boolean>(false);
     const [matches, setMatches] = useLocalStorage<Match[]>('matches',[])
-console.log(matches)
+    console.log(matches)
 
-    const [ handleSQ, setHandleSQ] = useState([])
-    
-    
+  
+    const [nameOne, setNameOne] = useState<string>("")
+    const [nameTwo, setNameTwo] = useState<string>("")
 
-
-
-       
     const [teamOne, setTeamOne] = useState<string>("")
-    const [teamTwo, setTeamTwo] = useState<string>("")
- 
-
-    const teamOneCopy = [...teamOne];
+    const [playerOne, setPlayerOne] = useState<string>("")
     
-        if(teamOneCopy){
-            console.log('shit')
-            
-    };
 
-// GÖRA TEAMS i object
-// players
-// playerOneID>kills>deaths
-// playerOne>kills>deaths
-// playerOne>kills>deaths
-// playerOne>kills>deaths
+    const players = [{
+        playerOne: playerOne
+    }]
+  
 
-const handleTeamOneInput: (e:any) => void = (e:any) =>{setTeamOne(e.target.value)}
-const handleTeamTwoInput: (e:any) => void = (e:any) =>{setTeamTwo(e.target.value)}
+    const teams = [{
+        teamOne: players
+
+    }]
+        
+    
+
+const handleNameOneInput: (e:any) => void = (e:any) =>{setNameOne(e.target.value)}
+const handleNameTwoInput: (e:any) => void = (e:any) =>{setNameTwo(e.target.value)}
+const handleTeamOne: (e:any) => void = (e:any) =>{setTeamOne(e.target.value)}
+const handlePlayerOne: (e:any) => void = (e:any) =>{setPlayerOne(e.target.value)}
 
 
    const handleSubmit: (e:any) => void = (e:any) => {
     e.preventDefault();
-    setMatches([...matches, { matchId: Date.now(), teamOne, teamTwo, teamOneCopy }].sort((a, b) => {
-        return b.matchId - a.matchId;}));
+    setMatches([...matches, { matchId: Date.now(), nameOne, nameTwo, teams }].sort((a, b) => {
+        return b.matchId - a.matchId;}))
+        
     };
     
     
@@ -68,8 +65,12 @@ const handleTeamTwoInput: (e:any) => void = (e:any) =>{setTeamTwo(e.target.value
         {overlay && 
         <form className="add-match" onSubmit={handleSubmit}>
             <header>This is AddMatch</header>
-            <input type="text" id='teamOne' name='teamOne' placeholder='teamOne' required onChange={(e) => handleTeamOneInput(e)} />
-            <input type="text" id='teamTwo' name='teamTwo' placeholder='teamTwo' required onChange={(e) => handleTeamTwoInput(e)} />
+            <input type="text" id='nameOne' name='nameOne' placeholder='nameOne' required onChange={(e) => handleNameOneInput(e)} />
+            <input type="text" id='nameTwo' name='nameTwo' placeholder='nameTwo' required onChange={(e) => handleNameTwoInput(e)} />
+
+            <input type="text" id='teamOne' name='teamOne' placeholder='teamOne' onChange={(e) => handleTeamOne(e)} />
+            <input type="text" id='playerOne' name='playerOne' placeholder='playerOne' onChange={(e) => handlePlayerOne(e)} />
+
             <input type="submit" />
         </form>
         }         

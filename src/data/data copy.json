@@ -1,0 +1,22 @@
+ [
+        {
+            "matchId": 1364627699365,
+            "teams": [
+                {
+                    "teamOne":"blue",
+                    "players": [
+                        {
+                            "playerOne": "TGLTN",
+                            "kills": 20,
+                            "deaths": 3
+                        },
+                        {
+                            "playerOne": "M1ME",
+                            "kills": 30,
+                            "deaths": 6
+                        }
+                    ]
+                }
+            ]
+        }
+]

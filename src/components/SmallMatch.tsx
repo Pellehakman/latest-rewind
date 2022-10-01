@@ -23,7 +23,7 @@ const SmallMatch = ({match, matches, setMatches}: Props) => {
     setMatches(matches.filter((match) => match.matchId !== matchId))
 }
 const handlePlayer:  () => void = () => {
-    console.log('you clicked', match.teamOne)
+    console.log('you clicked', match.nameOne)
    
 }
     
@@ -35,11 +35,11 @@ const handlePlayer:  () => void = () => {
 
             </form>
             <span onClick={handlePlayer} >
-                team name 1:{match.teamOne} 
+                team name 1:{match.nameOne} 
             </span>
 
             <span onClick={handlePlayer} >
-                team name 2: {match.teamTwo}
+                team name 2: {match.nameTwo}
             </span>
             
             

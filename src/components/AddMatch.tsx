@@ -1,12 +1,12 @@
 
 import { ChangeEvent, useRef, useState } from 'react';
-import '../styles/AddMatch.scss'
+import '../styles/AddTeams.scss'
 import { Match } from '../models/data'
 
 
 
 
-const AddMatch: React.FC = () => {
+const AddTeams: React.FC = () => {
 
 
 
@@ -24,4 +24,4 @@ const AddMatch: React.FC = () => {
   
 
     }
- export default AddMatch
+ export default AddTeams
