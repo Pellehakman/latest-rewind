@@ -23,16 +23,18 @@ const Home: React.FC<Props> = () => {
 
 
     const [overlay, setOverlay] = useState<boolean>(false);
-
+    // const [match, setMatch] = useState<string>('')
     const [matches, setMatches] = useLocalStorage<Match[]>('matches',[])
-
+    // const [matches, setMatches] = useState<Match[]>([])
        
     const [teamOne, setTeamOne] = useState<string>("")
     const [teamTwo, setTeamTwo] = useState<string>("")
  
+    // console.log(match)
+    console.log(matches)
 
    
-
+// DET FUNKAR UTAN MATCH OCH CARD SINGLE
 
 
 const handleTeamOneInput: (e:any) => void = (e:any) =>{setTeamOne(e.target.value)}
@@ -41,8 +43,14 @@ const handleTeamTwoInput: (e:any) => void = (e:any) =>{setTeamTwo(e.target.value
 
    const handleSubmit: (e:any) => void = (e:any) => {
     e.preventDefault();
+    // const Card = {
+    //     teamOne: teamOne,
+    //     teamTwo: teamTwo,
+    //     matchId: Date.now()
+    // }
+   
+    // setMatch(JSON.stringify(Card))
     setMatches([...matches, { matchId: Date.now(), teamOne, teamTwo }]);
-    
   
         
   };

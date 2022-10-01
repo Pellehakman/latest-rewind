@@ -1,16 +1,16 @@
-{
-    "matches": [
+ [
         {
-            "fullName": "Bert",
-            "email": "bert@mail.com",
-            "matchId": 1
+            "matchId": 1,
+            "teamOne": "few",
+            "teamTwo": "suck my cock"
+            
         },
         {
-            "fullName": "Sven",
-            "email": "sven@mail.com",
-            "matchId": 2
+            "matchId": 2,
+            "teamOne": "fewf",
+            "teamTwo": "ssfak"
+            
         }
-
+        
         
     ]
-}

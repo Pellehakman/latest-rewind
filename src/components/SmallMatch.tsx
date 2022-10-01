@@ -26,6 +26,10 @@ const SmallMatch = ({match, matches, setMatches}: Props) => {
     const handleDelete = (matchId: number) => {
     setMatches(matches.filter((match) => match.matchId !== matchId))
 }
+const handlePlayer:  () => void = () => {
+    console.log('you clicked', match.teamOne)
+   
+}
     
     return(
         <section className='small-match-conainer' >
@@ -34,7 +38,7 @@ const SmallMatch = ({match, matches, setMatches}: Props) => {
             <form >
 
             </form>
-            <span>
+            <span onClick={handlePlayer} >
                 {match.teamOne}
             </span>
             {match.teamTwo}
