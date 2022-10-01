@@ -39,9 +39,13 @@ const handlePlayer:  () => void = () => {
 
             </form>
             <span onClick={handlePlayer} >
-                {match.teamOne}
+                team name 1:{match.teamOne} 
             </span>
-            {match.teamTwo}
+
+            <span onClick={handlePlayer} >
+                team name 2: {match.teamTwo}
+            </span>
+            
             
             
             
