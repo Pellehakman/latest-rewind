@@ -4,6 +4,8 @@ import { Match } from '../models/data';
 import { RootState } from '../store';
 import '../styles/SmallMatch.scss'
 import { GiExpand } from "react-icons/gi";
+import { IoClose, IoExpand } from "react-icons/io5";
+
 
 
 type Props = {
@@ -35,20 +37,22 @@ const handlePlayer:  () => void = () => {
                     
                     <div className='small-match-display'>
                         <div className='small-match-time-container'>
-                        <span className='small-match-date'>2022-09-25</span>
-                        <span className='small-match-time'>22:33</span>
-                    </div>
+                            <span className='small-match-date'>2022-09-25</span>
+                            <span className='small-match-time'>22:33</span>
+                        </div>
                     <div className='white-divider'></div>
                     
-                    <span className='small-match-header'>{match.nameOne}</span>
+                    <span className='small-match-headerName'>{match.nameOne}</span>
                     <div className='white-divider'></div>
-                    <span className='small-match-header'>WIN</span>
+                    <span className='small-match-headerWin'>WIN</span>
                     <div className='white-divider'></div>
-                    </div>
                     <div className='drowdown-container'>
 
                     <GiExpand className='dropdown' onClick={handleBigMatchOverlay}/>
                     </div>
+
+                    </div>
+                    
                     
                     
                     
@@ -63,7 +67,7 @@ const handlePlayer:  () => void = () => {
                 <header className='team-names-container'>
                     <div className='teamOne-header'>TEAM ONE</div>
                     <div className='teamTwo-header'><span>TEAM TWO</span>
-                    <GiExpand className='dropdown' onClick={handleBigMatchOverlay}/>
+                    <IoClose className='dropdown' onClick={handleBigMatchOverlay}/>
                     
                     </div>
                     

@@ -1,42 +1,67 @@
 @use 'variables';
+@use 'sass:color';
 
 
 .home-container{
     @include variables.flexContainer(row);
+    width: 100vw;
+    height: 100vh;
     justify-content: center;
     align-items: center;
-    flex: 1;
-    background-color: variables.$container-bg
+
     
-    
-    
+      
+    position: relative;
+   
 }
+.all-time-container{
+    padding: .5rem;
+    
+    height: 40rem;
+}
+.main-container{
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    
+   
+}
+
+
+
+.matches-container{
+    height: 40rem;
+    width: 35rem;
+    background-color: variables.$white-bg;
+    padding: .5rem;
+   
+    position: relative;
+    
+    overflow-y: scroll;
+}
+
 .overflow-fade{
     height: 2rem;
+    position: absolute;
+    width: 35rem;
     
     background-color: rgb(33, 87, 87);
     
     bottom: 0;
     
 }
-
-
-
-.matches-container{
-    height: 90%;
-    width: 35rem;
-    background-color: variables.$white-bg;
-    padding: .5rem;
-    
-    overflow-y: scroll;
-}
 .add-match{
     @include variables.flexContainer(column);
 
 }
-.add-btn{
+.add-btn-container{
     @include variables.addBtn();
+    
+    &:hover{
+        background: color.scale(variables.$add-bg, $lightness: 50%);
+
+    }
 }
+
 
 .header-container{
     @include variables.flexContainer(row);
@@ -44,11 +69,18 @@
     padding-left: 1rem;
     @include variables.columnSize();
     border-radius: .1em;
-    
-    
     justify-content: space-between;
-    
-    
+    background-color: variables.$black-bg;
+    margin-bottom: .5rem;
+}
+
+.all-time-header{
+    @include variables.center();
+    @include variables.headerFont();
+    padding: 0 1rem 0 1rem;
+    @include variables.columnSize();
+    border-radius: .1em;
+    justify-content: space-between;
     background-color: variables.$black-bg;
     margin-bottom: .5rem;
 }

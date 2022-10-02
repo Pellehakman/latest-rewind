@@ -15,12 +15,12 @@ if (localStorage.length > 0){
 
   return (
     <div className="app">
-      <Nav />
+      {/* <Nav /> */}
       
         <Routes>
           <Route path='/' element={ <Home /> } />
         </Routes>
-        <Footer />
+        {/* <Footer /> */}
       
     </div>
   )

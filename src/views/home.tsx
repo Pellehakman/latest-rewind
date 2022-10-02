@@ -72,10 +72,11 @@ const handlePlayerOne: (e:any) => void = (e:any) =>{setPlayerOne(e.target.value)
 
     return (         
        <section className='home-container'>
+        <div className='main-container'>
         <div className='matches-container'>
             <section className='header-container'>
                 <span>LAST 10 GAMES</span>
-            <button className='add-btn' onClick={handleAddMatchOverlay}>ADD MATCH</button >
+            <button className='add-btn-container' onClick={handleAddMatchOverlay}><span className='add-btn'>ADD MATCH</span></button >
             </section>
 
         
@@ -100,6 +101,16 @@ const handlePlayerOne: (e:any) => void = (e:any) =>{setPlayerOne(e.target.value)
         
        
         </div>
+        <div className='all-time-container'> 
+        <section className='all-time-header'>
+                <span>ALL TIME STATS</span>
+           
+            </section>
+        
+        </div>
+        </div>
+        
+        
 
        </section>
     )

@@ -74,9 +74,11 @@ color: $white-bg;
     color: $white-bg;
     transition: .1s all;
 	cursor: pointer;
-	&:hover {
+    
+    // &:hover {
+    //     background-color: $add-bg;
 		
-	}
+	// }
 }
 @mixin deleteBtn() {
     flex: 1;
