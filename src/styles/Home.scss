@@ -11,6 +11,14 @@
     
     
 }
+.overflow-fade{
+    height: 2rem;
+    
+    background-color: rgb(33, 87, 87);
+    
+    bottom: 0;
+    
+}
 
 
 
@@ -18,9 +26,9 @@
     height: 90%;
     width: 35rem;
     background-color: variables.$white-bg;
-    padding: .5rem
+    padding: .5rem;
     
-    // overflow-y: scroll;
+    overflow-y: scroll;
 }
 .add-match{
     @include variables.flexContainer(column);
@@ -36,6 +44,7 @@
     padding-left: 1rem;
     @include variables.columnSize();
     border-radius: .1em;
+    
     
     justify-content: space-between;
     

@@ -62,7 +62,11 @@ const handlePlayer:  () => void = () => {
 
                 <header className='team-names-container'>
                     <div className='teamOne-header'>TEAM ONE</div>
-                    <div className='teamTwo-header'>TEAM ONE</div>
+                    <div className='teamTwo-header'><span>TEAM TWO</span>
+                    <GiExpand className='dropdown' onClick={handleBigMatchOverlay}/>
+                    
+                    </div>
+                    
                 </header>
 
             <div className='team-big-container'>
