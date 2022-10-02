@@ -6,7 +6,7 @@
     justify-content: center;
     align-items: center;
     flex: 1;
-    background-color: rgb(22, 112, 112);
+    background-color: variables.$container-bg
     
     
     
@@ -17,7 +17,8 @@
 .matches-container{
     height: 90%;
     width: 35rem;
-    background-color: rgb(55, 74, 142);
+    background-color: variables.$white-bg;
+    padding: .5rem
     
     // overflow-y: scroll;
 }
@@ -32,13 +33,15 @@
 .header-container{
     @include variables.flexContainer(row);
     @include variables.headerFont();
+    padding-left: 1rem;
     @include variables.columnSize();
+    border-radius: .1em;
     
     justify-content: space-between;
     
     
     background-color: variables.$black-bg;
-    margin-bottom: 1rem
+    margin-bottom: .5rem;
 }
 .add-match-bar{
     @include variables.smallMatchContainer();
@@ -46,6 +49,6 @@
     align-items: center;
     
    
-    margin-bottom: 1rem;
+    margin-bottom: .5rem;
 
 }

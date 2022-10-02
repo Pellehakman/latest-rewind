@@ -1,25 +1,68 @@
 @use 'variables';
 
-.match{
+.small-match{
     @include variables.smallMatchContainer();
     justify-content: space-between;
     align-items: center;
     background-color: variables.$loose-bg;
-
-    
-    margin-bottom: 1rem
+    border-radius: .1em; 
+    margin-bottom: .5rem;
+    padding: 0 .5rem 0 .5rem;
     
 }
 
-.match-date-container{
-    @include variables.flexContainer();
-    align-items: center;
+.small-match-time-container{
+    @include variables.center();
+    flex-direction: column;
+    
+    width: 10rem
+}
+.white-divider{
+    width: 2px;
+    border-radius: 1em;
+    background-color: white
+}
+.small-match-display{
+    @include variables.flexContainer(row);
 
+}
+
+.small-match-header{
+    @include variables.headerFont();
+    @include variables.center();
+    width: 10rem;
+    
+    
+    overflow-x: hidden;
+    
+}
+
+.small-match-date{
+    @include variables.headerFont();
+    font-size: 1rem;
+    
+}
+
+.small-match-time{
+    @include variables.headerFont();
+    font-size: .9rem;
+}
+.drowdown-container{
+    
+    @include variables.center();
+    margin-left: .5rem;
+    flex: 1;
+}
+.dropdown{
+    width: 2rem;
+    height:2rem;
+    color: white
 }
 
 .small-overlay{
     @include variables.flexContainer(row);
 }
+
 
 .big-match-container{
     height: 15rem;
@@ -68,12 +111,25 @@
     
     
 }
+.third{
+    display: flex;
+    flex: 1;
+    
+    
+}
+.kill{
+    width: 3rem;
+}
+.death{
+    width: 3rem;
 
+
+}
 .property-container{
-    @include variables.center();
+   display: flex;
     background-color: variables.$loose-bg;
     flex:1;
-    justify-content: space-evenly;
+    
     @include variables.propertyFont
     
 }

@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { Match } from '../models/data';
 import { RootState } from '../store';
 import '../styles/SmallMatch.scss'
+import { GiExpand } from "react-icons/gi";
 
 
 type Props = {
@@ -29,25 +30,31 @@ const handlePlayer:  () => void = () => {
     
     return(
         <section className='small-match-conainer' >
-             {hide && <div className='match'> 
-            
-            <form >
+            {hide && 
+                <div className='small-match'>
+                    
+                    <div className='small-match-display'>
+                        <div className='small-match-time-container'>
+                        <span className='small-match-date'>2022-09-25</span>
+                        <span className='small-match-time'>22:33</span>
+                    </div>
+                    <div className='white-divider'></div>
+                    
+                    <span className='small-match-header'>{match.nameOne}</span>
+                    <div className='white-divider'></div>
+                    <span className='small-match-header'>WIN</span>
+                    <div className='white-divider'></div>
+                    </div>
+                    <div className='drowdown-container'>
 
-            </form>
-            <span onClick={handlePlayer} >
-                team name 1:{match.nameOne} 
-            </span>
-
-            <span onClick={handlePlayer} >
-                team name 2: {match.nameTwo}
-            </span>
-            
-            
-            
-            
-            
-            <button onClick={handleBigMatchOverlay}>VIEW GAME</button>
-            </div>}
+                    <GiExpand className='dropdown' onClick={handleBigMatchOverlay}/>
+                    </div>
+                    
+                    
+                    
+                    
+                
+                </div>}
             
             {overlay && 
             //---------------//BIG CARD---------------//
@@ -60,63 +67,11 @@ const handlePlayer:  () => void = () => {
 
             <div className='team-big-container'>
 
-                <div className='team-small-container'>
-                    <div className='property-container'>
-                        <span>PLAYER</span>
-                        <span>KILLS</span>
-                        <span>DEATHS</span>
-                    </div>
-                    <div className='player-container'>
-                        <span>PHAWKMAN</span>
-                        <span>30</span>
-                        <span>13</span>
-                    </div>
-                    <div className='player-container'>
-                        <span>PHAWKMAN</span>
-                        <span>30</span>
-                        <span>13</span>
-                    </div>
-                    <div className='player-container'>
-                        <span>PHAWKMAN</span>
-                        <span>30</span>
-                        <span>13</span>
-                    </div>
-                    <div className='player-container'>
-                        <span>PHAWKMAN</span>
-                        <span>30</span>
-                        <span>13</span>
-                    </div>
-                </div>
+               
 
-                <div className='divider'></div>
+            
 
-                <div className='team-small-container'>
-                    <div className='property-container'>
-                        <span>PLAYER</span>
-                        <span>KILLS</span>
-                        <span>DEATHS</span>
-                    </div>
-                    <div className='player-container'>
-                        <span>PHAWKMAN</span>
-                        <span>30</span>
-                        <span>13</span>
-                    </div>
-                    <div className='player-container'>
-                        <span>PHAWKMAN</span>
-                        <span>30</span>
-                        <span>13</span>
-                    </div>
-                    <div className='player-container'>
-                        <span>PHAWKMAN</span>
-                        <span>30</span>
-                        <span>13</span>
-                    </div>
-                    <div className='player-container'>
-                        <span>PHAWKMAN</span>
-                        <span>30</span>
-                        <span>13</span>
-                    </div>
-                </div>
+              
 
                 </div>
            
