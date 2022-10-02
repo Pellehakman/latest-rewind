@@ -21,7 +21,6 @@ const MatchList: React.FC<Props> = ({matches, setMatches }) => {
    
     return(
     <div className="match-list-container">
-        <header>This is Matchlist</header>
         {matches.map(match => (
             <SmallMatch 
             match={match} 
@@ -29,7 +28,7 @@ const MatchList: React.FC<Props> = ({matches, setMatches }) => {
             matches={matches}
             setMatches={setMatches} />
         ))}
-        {/* <SmallMatch  /> */}
+        
     </div>
     )
 }

@@ -5,6 +5,8 @@ $edit-bg: #FF9900;
 $container-bg: #e6e6e6;
 $white-bg: #FFFFFF;
 $black-bg: #000000;
+$match-bg: #D7D7D7;
+$delete-bg: #8a1a1a;
 
 $hero-text-color: #dad0ee;
 $primary-font: 'Roboto', sans-serif;
@@ -29,11 +31,29 @@ font-family: $primary-font;
 font-size: 1.4em;
 font-weight: 700;
 color: $white-bg;
-    
+}
+
+@mixin propertyFont {
+    font-family: $primary-font;
+    font-size: 1em;
+    font-weight: 700;
+    color: $white-bg;
+}
+
+@mixin smallFont {
+    font-family: $primary-font;
+    font-size: .9em;
+    font-weight: 600;
+    color: $black-bg;
 }
 @mixin flexContainer($dir: column) {
     display: flex;
     flex-direction: $dir;
+}
+@mixin center() {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 @mixin columnSize() {
@@ -46,13 +66,35 @@ color: $white-bg;
     padding: 0 1rem 0 1rem;
     font-family: $primary-font;
     height: 100%;
-    font-size: .6em;
+    font-size: .8em;
     font-weight: 700;
     background-color: $add-bg;
     color: $white-bg;
     transition: .1s all;
 	cursor: pointer;
 	&:hover {
-		transform: scale(110%);
+		
 	}
+}
+@mixin deleteBtn() {
+    flex: 1;
+    border: none;
+    padding: 0 1rem 0 1rem;
+    font-family: $primary-font;
+    height: 2rem;
+    font-size: 1em;
+    font-weight: 700;
+    background-color: $delete-bg;
+    color: $white-bg;
+    transition: .1s all;
+	cursor: pointer;
+	&:hover {
+		
+	}
+}
+
+@mixin smallMatchContainer {
+    display: flex;
+    height: 3rem;
+    
 }

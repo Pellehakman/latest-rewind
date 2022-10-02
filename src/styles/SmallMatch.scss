@@ -1,10 +1,10 @@
 @use 'variables';
 
 .match{
-    @include variables.flexContainer(row);
+    @include variables.smallMatchContainer();
     justify-content: space-between;
     align-items: center;
-    background-color: variables.$white-bg;
+    background-color: variables.$loose-bg;
 
     
     margin-bottom: 1rem
@@ -20,3 +20,87 @@
 .small-overlay{
     @include variables.flexContainer(row);
 }
+
+.big-match-container{
+    height: 15rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: variables.$match-bg;
+    margin-bottom: 1rem
+    
+}
+.team-names-container{
+    @include variables.smallMatchContainer();
+   
+    @include variables.headerFont()
+    
+}
+.teamOne-header{
+    background-color: variables.$win-bg;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+.teamTwo-header{
+    background-color: variables.$loose-bg;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 2;
+}
+.team-big-container{
+    display: flex;
+    flex: 1;
+
+}
+.divider{
+    width: .1em;
+    
+    background-color: black;
+
+}
+.team-small-container{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    
+    
+}
+
+.property-container{
+    @include variables.center();
+    background-color: variables.$loose-bg;
+    flex:1;
+    justify-content: space-evenly;
+    @include variables.propertyFont
+    
+}
+
+.player-container{
+    @include variables.center();
+    border-bottom: .1em black solid;
+    height: 1.9rem;
+    justify-content: space-evenly;
+    @include variables.smallFont
+    
+}
+
+.big-match-btn-container{
+    @include variables.flexContainer(row);
+   
+
+}
+.delete-btn{
+    @include variables.deleteBtn();
+
+
+}
+.close-btn{
+    @include variables.deleteBtn();
+    background-color: rgb(0, 0, 0);
+
+
+}
+

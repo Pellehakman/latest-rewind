@@ -30,7 +30,7 @@ const handlePlayer:  () => void = () => {
     return(
         <section className='small-match-conainer' >
              {hide && <div className='match'> 
-            <button onClick={handleBigMatchOverlay}>VIEW GAME</button>
+            
             <form >
 
             </form>
@@ -46,17 +46,87 @@ const handlePlayer:  () => void = () => {
             
             
             
-            
+            <button onClick={handleBigMatchOverlay}>VIEW GAME</button>
             </div>}
             
             {overlay && 
             //---------------//BIG CARD---------------//
             <div className='big-match-container'>
-            {match.matchId}
+
+                <header className='team-names-container'>
+                    <div className='teamOne-header'>TEAM ONE</div>
+                    <div className='teamTwo-header'>TEAM ONE</div>
+                </header>
+
+            <div className='team-big-container'>
+
+                <div className='team-small-container'>
+                    <div className='property-container'>
+                        <span>PLAYER</span>
+                        <span>KILLS</span>
+                        <span>DEATHS</span>
+                    </div>
+                    <div className='player-container'>
+                        <span>PHAWKMAN</span>
+                        <span>30</span>
+                        <span>13</span>
+                    </div>
+                    <div className='player-container'>
+                        <span>PHAWKMAN</span>
+                        <span>30</span>
+                        <span>13</span>
+                    </div>
+                    <div className='player-container'>
+                        <span>PHAWKMAN</span>
+                        <span>30</span>
+                        <span>13</span>
+                    </div>
+                    <div className='player-container'>
+                        <span>PHAWKMAN</span>
+                        <span>30</span>
+                        <span>13</span>
+                    </div>
+                </div>
+
+                <div className='divider'></div>
+
+                <div className='team-small-container'>
+                    <div className='property-container'>
+                        <span>PLAYER</span>
+                        <span>KILLS</span>
+                        <span>DEATHS</span>
+                    </div>
+                    <div className='player-container'>
+                        <span>PHAWKMAN</span>
+                        <span>30</span>
+                        <span>13</span>
+                    </div>
+                    <div className='player-container'>
+                        <span>PHAWKMAN</span>
+                        <span>30</span>
+                        <span>13</span>
+                    </div>
+                    <div className='player-container'>
+                        <span>PHAWKMAN</span>
+                        <span>30</span>
+                        <span>13</span>
+                    </div>
+                    <div className='player-container'>
+                        <span>PHAWKMAN</span>
+                        <span>30</span>
+                        <span>13</span>
+                    </div>
+                </div>
+
+                </div>
+           
+            
+            <div className='big-match-btn-container'>
+            <button className='delete-btn' onClick={() => handleDelete(match.matchId)}>DELETE</button>
+            <button className='close-btn' onClick={handleBigMatchOverlay}>CLOSE</button>
+            </div>
             
             
-            <button onClick={() => handleDelete(match.matchId)}>delete</button>
-            <button onClick={handleBigMatchOverlay}>CLOSE</button>
             </div>}
             </section>
     )

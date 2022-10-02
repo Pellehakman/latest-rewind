@@ -72,12 +72,16 @@ const handlePlayerOne: (e:any) => void = (e:any) =>{setPlayerOne(e.target.value)
 
     return (         
        <section className='home-container'>
-        <div className='display-match-container'>
+        <div className='matches-container'>
+            <section className='header-container'>
+                <span>LAST 10 GAMES</span>
+            <button className='add-btn' onClick={handleAddMatchOverlay}>ADD MATCH</button >
+            </section>
 
-        <button onClick={handleAddMatchOverlay}>ADD MATCH</button >
+        
         {overlay && 
         <form className="add-match" onSubmit={handleSubmit}>
-            <header>This is AddMatch</header>
+            
             <input type="text" id='nameOne' name='nameOne' placeholder='nameOne' onChange={(e) => handleNameOneInput(e)} />
             <input type="text" id='nameTwo' name='nameTwo' placeholder='nameTwo' onChange={(e) => handleNameTwoInput(e)} />
             <input type="text" id='teamOne' name='teamOne' placeholder='teamOne' onChange={(e) => handleTeamOne(e)} />
