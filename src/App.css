@@ -11,7 +11,9 @@
 
   background-color: rgb(231, 231, 231);
 }
-
+*{
+  box-sizing: border-box;
+}
 
 .logo {
   height: 6em;

@@ -5,10 +5,9 @@
     justify-content: space-between;
     align-items: center;
     background-color: variables.$loose-bg;
-    border-radius: 2px; 
     margin-bottom: .5rem;
-    border: 1px solid rgb(44, 44, 44);
-    box-shadow: 1px 1px 1px rgb(122, 122, 122)
+    @include variables.outerStyle
+    
     
 }
 
@@ -142,18 +141,24 @@
 
 
 }
+.save-btn{
+    @include variables.deleteBtn();
+    background-color: variables.$add-bg
+
+
+}
 
 .big-match-container{
     position: relative;
-    height: 15rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     background-color: variables.$match-bg;
     margin-bottom: .5rem;
-    border: 1px solid rgb(44, 44, 44);
-    box-shadow: 1px 1px 1px rgb(122, 122, 122);
-    border-radius: 2px; 
+    @include variables.outerStyle
+    
+    
+   
     
 }
 .team-names-container{
@@ -178,24 +183,79 @@
     justify-content: center;
     flex: 2;
 }
-.team-big-container{
+.team-big-container{ 
     display: flex;
     flex: 1;
-
+    background-color: variables.$container-bg
 }
 
 .big-match-team{
-    background-color: azure;
+    display: flex;
+    flex-direction: row;
     flex: 1;
-    
+    justify-content: space-between; 
 }
+
+.b-m-row{
+    display: flex;
+    flex: 1;
+    flex-direction: column;   
+}
+
+.b-m-col{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    font-family: variables.$primary-font;
+    font-weight: 600;
+    justify-content: center;
+}
+
+.b-m-players{   
+    background-color: black;
+    @include variables.propertyFont;
+    padding: .3rem;   
+}
+
+.b-m-kills{
+    padding: .3rem;
+    display: flex;  
+    background-color: black;
+    @include variables.propertyFont;
+    justify-content: center;
+
+}
+.b-m-deaths{
+    padding: .3rem;
+    display: flex;
+    background-color: black;
+    @include variables.propertyFont;
+    justify-content: center
+
+}
+
+.b-m-kd{   
+    background-color: black;
+    @include variables.propertyFont;
+    justify-content: center;
+}
+
+.item{ 
+    justify-content: center;
+    display: flex;
+    flex:1;
+    padding: .5rem;
+}
+
+.items{ 
+    padding: .5rem;
+    display: flex;
+    flex:1; 
+}
+
 .big-divider{
     width: 1px;
     background-color: black;
 }
-.big-match-grid{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-  
-}
+
+

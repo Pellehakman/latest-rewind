@@ -28,6 +28,18 @@
     padding: .5rem;
     
     height: 40rem;
+   
+}
+.all-time-header{
+    @include variables.outerStyle
+}
+.all-time-player{
+    @include variables.smallMatchContainer();
+    @include variables.propertyFont;
+    background-color: variables.$edit-bg;
+    @include variables.center;
+    @include variables.outerStyle
+
 }
 .main-container{
     background-color: rgb(255, 255, 255);
@@ -59,12 +71,14 @@
     bottom: 0;
     
 }
+
 .add-match{
     @include variables.flexContainer(column);
 
 }
 .add-btn-container{
     @include variables.addBtn();
+    @include variables.outerStyle;
     
     &:hover{
         background: color.scale(variables.$add-bg, $lightness: 50%);
@@ -102,4 +116,33 @@
    
     margin-bottom: .5rem;
 
+}
+
+.add-number{
+    width: 1.5rem;
+    height: 1.5rem;
+}
+.add-player{
+    width: 6rem;
+    height: 1.5rem;
+}
+
+.add-teamOne-header{
+    background-color: variables.$win-bg;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    border-right: 1px solid rgb(44, 44, 44);
+}
+.add-teamTwo-header{
+    background-color: variables.$loose-bg;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+.add-teamName{
+    height: 1.5rem;
+    
 }

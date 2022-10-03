@@ -67,37 +67,81 @@ const handlePlayer:  () => void = () => {
 
                 <header className='team-names-container'>
                     <div className='teamOne-header'>TEAM ONE</div>
-                    <div className='teamTwo-header'><span>TEAM TWO</span>
-                    
-
-
-                    </div>
-                    
-                    
+                    <div className='teamTwo-header'><span>TEAM TWO</span></div>
                 </header>
 
             <div className='team-big-container'>
+            
+                        
 
-
-            <div className='big-match-team'>
-                <div className='big-match-grid'>
-
-
+                <div className='big-match-team'>
+                    <div className='b-m-row'>
+                    <div className='b-m-col'>
+                        <div className="b-m-players"><span>PLAYERS</span></div>
+                        <span className="items">PHAWKMAN</span>
+                        <span className="items">TGLTN</span>
+                        <span className="items">M1ME</span>
+                        <span className="items">HWINN</span>
+                    </div>
                 </div>
                 
+                <div className='b-m-row'>
+                    <div className='b-m-col'>
+                        <div className="b-m-kills"><span>KILLS</span></div>
+                        <div className="item">23</div>
+                        <div className="item">32</div>
+                        <div className="item">45</div>
+                        <div className="item">43</div>
+                    </div>
+                </div>
+                <div className='b-m-row'>
+                    <div className='b-m-col'>
+                        <div className="b-m-deaths"><span>DEATHS</span></div>
+                        <div className="item">2</div>
+                        <div className="item">3</div>
+                        <div className="item">4</div>
+                        <div className="item">6</div>
+                    </div>
+                </div>
+                </div>      
 
+                <div className='big-divider'></div>
+
+                <div className='big-match-team'>
+                    <div className='b-m-row'>
+                    <div className='b-m-col'>
+                        <div className="b-m-players"><span>PLAYERS</span></div>
+                        <span className="items">PHAWKMAN</span>
+                        <span className="items">TGLTN</span>
+                        <span className="items">M1ME</span>
+                        <span className="items">HWINN</span>
+                    </div>
+                </div>
+                
+                <div className='b-m-row'>
+                    <div className='b-m-col'>
+                        <div className="b-m-kills"><span>KILLS</span></div>
+                        <div className="item">23</div>
+                        <div className="item">32</div>
+                        <div className="item">45</div>
+                        <div className="item">43</div>
+                    </div>
+                </div>
+                <div className='b-m-row'>
+                    <div className='b-m-col'>
+                        <div className="b-m-deaths"><span>DEATHS</span></div>
+                        <div className="item">2</div>
+                        <div className="item">3</div>
+                        <div className="item">4</div>
+                        <div className="item">6</div>
+                    </div>
+                </div>
+                </div>
+                    
+                
+             
 
             </div>
-            <div className='big-divider'></div>
-            <div className='big-match-team'></div>
-
-               
-
-            
-
-              
-
-                </div>
            
             
             <div className='big-match-btn-container'>

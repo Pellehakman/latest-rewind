@@ -102,3 +102,10 @@ color: $white-bg;
     height: 3rem;
     
 }
+
+@mixin outerStyle{
+    box-shadow: 1px 1px 1px rgb(122, 122, 122);
+    border: 1px solid rgb(44, 44, 44);
+    border-radius: 2px; 
+
+}
