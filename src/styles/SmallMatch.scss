@@ -5,8 +5,10 @@
     justify-content: space-between;
     align-items: center;
     background-color: variables.$loose-bg;
-    border-radius: .1em; 
+    border-radius: 2px; 
     margin-bottom: .5rem;
+    border: 1px solid rgb(44, 44, 44);
+    box-shadow: 1px 1px 1px rgb(122, 122, 122)
     
 }
 
@@ -78,41 +80,7 @@
 }
 
 
-.big-match-container{
-    position: relative;
-    height: 15rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background-color: variables.$match-bg;
-    margin-bottom: .5rem
-    
-}
-.team-names-container{
-    @include variables.smallMatchContainer();
-   
-    @include variables.headerFont()
-    
-}
-.teamOne-header{
-    background-color: variables.$win-bg;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex: 1;
-}
-.teamTwo-header{
-    background-color: variables.$loose-bg;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex: 2;
-}
-.team-big-container{
-    display: flex;
-    flex: 1;
 
-}
 .divider{
     width: .1em;
     
@@ -175,3 +143,59 @@
 
 }
 
+.big-match-container{
+    position: relative;
+    height: 15rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: variables.$match-bg;
+    margin-bottom: .5rem;
+    border: 1px solid rgb(44, 44, 44);
+    box-shadow: 1px 1px 1px rgb(122, 122, 122);
+    border-radius: 2px; 
+    
+}
+.team-names-container{
+    @include variables.smallMatchContainer();
+   
+    @include variables.headerFont();
+    border-bottom: 1px solid rgb(44, 44, 44);
+    
+}
+.teamOne-header{
+    background-color: variables.$win-bg;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    border-right: 1px solid rgb(44, 44, 44);
+}
+.teamTwo-header{
+    background-color: variables.$loose-bg;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 2;
+}
+.team-big-container{
+    display: flex;
+    flex: 1;
+
+}
+
+.big-match-team{
+    background-color: azure;
+    flex: 1;
+    
+}
+.big-divider{
+    width: 1px;
+    background-color: black;
+}
+.big-match-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  
+}

@@ -4,6 +4,7 @@ import { Match } from '../models/data';
 import { RootState } from '../store';
 import '../styles/SmallMatch.scss'
 import { GiExpand } from "react-icons/gi";
+import '../styles/Bigmatch.scss'
 import { IoClose, IoExpand } from "react-icons/io5";
 
 
@@ -67,13 +68,28 @@ const handlePlayer:  () => void = () => {
                 <header className='team-names-container'>
                     <div className='teamOne-header'>TEAM ONE</div>
                     <div className='teamTwo-header'><span>TEAM TWO</span>
-                    <IoClose className='dropdown' onClick={handleBigMatchOverlay}/>
                     
+
+
                     </div>
+                    
                     
                 </header>
 
             <div className='team-big-container'>
+
+
+            <div className='big-match-team'>
+                <div className='big-match-grid'>
+
+
+                </div>
+                
+
+
+            </div>
+            <div className='big-divider'></div>
+            <div className='big-match-team'></div>
 
                
 
