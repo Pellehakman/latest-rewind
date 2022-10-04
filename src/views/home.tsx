@@ -27,29 +27,35 @@ const Home: React.FC<Props> = () => {
     const [teamOne, setTeamOne] = useState<string>("")
     const [teamTwo, setTeamTwo] = useState<string>("")
     const [playerOne, setPlayerOne] = useState<string>("")
+    const [playerTwo, setPlayerTwo] = useState<string>("")
     const [playerFive, setPlayerFive] = useState<string>("")
     const [kills, setKills] = useState<number>()
     const [deaths, setDeaths] = useState<number>()
     
 
-const teams = [{
+const players = {
         teamOne: teamOne,
-        players: [{
-            playerOne: playerOne,
-            playerId: Date.now(),
-            kills: kills,
-            deaths: deaths, 
-        }],
-},
-{
-        teamTwo: teamTwo,
-        players: [{
-            playerFive: playerFive,
-            playerId: Date.now(),
-            kills: kills,
-            deaths: deaths, 
-        }],
-}]
+        players: {
+            playerOne:{
+                playerOne: playerOne,
+                playerId: Date.now(),
+                kills: kills,
+                deaths: deaths, 
+            }, 
+            playerTwo:{
+                playerTwo: playerTwo,
+                playerId: Date.now(),
+                kills: kills,
+                deaths: deaths, 
+            }, 
+            
+            
+        },
+        
+        
+
+}
+console.log(typeof players)
         
    
 const handleNameOneInput: (e:any) => void = (e:any) =>{setNameOne(e.target.value)}
@@ -62,8 +68,11 @@ const handlePlayerOne: (e:any) => void = (e:any) =>{setPlayerOne(e.target.value)
    const handleSubmit: (e:any) => void = (e:any) => {
     
     e.preventDefault();
-    setMatches([...matches, { matchId: Date.now(), nameOne, nameTwo, teams }]
+    setMatches([...matches, { matchId: Date.now(), nameOne, nameTwo, players:{
+        playerOne
+    } }]
     .sort((a, b) => {return b.matchId - a.matchId;}))
+    
     
 };
     
@@ -99,20 +108,19 @@ const handlePlayerOne: (e:any) => void = (e:any) =>{setPlayerOne(e.target.value)
                     <div className='b-m-row'>
                     <div className='b-m-col'>
                         <div className="b-m-players"><span>PLAYERS</span></div>
-                        <span className="items"><input className='add-player' placeholder='Player name...'/></span>
-                        <span className="items"><input className='add-player' placeholder='Player name...'/></span>
-                        <span className="items"><input className='add-player' placeholder='Player name...'/></span>
-                        <span className="items"><input className='add-player' placeholder='Player name...'/></span>
+                        <span className="items"><input className='add-player'  type="text" id='playerOne' name='playerOne' placeholder='playerOne' onChange={(e) => setPlayerOne(e.target.value)} /></span>
+                        <span className="items"><input className='add-player'  type="text" id='playerOne' name='playerOne' placeholder='playerOne' onChange={(e) => setPlayerTwo(e.target.value)} /></span>
+                        
                     </div>
                 </div>
                 
+                     
                 <div className='b-m-row'>
                     <div className='b-m-col'>
                         <div className="b-m-kills"><span>KILLS</span></div>
                         <div className="item"><input className='add-number'/></div>
                         <div className="item"><input className='add-number'/></div>
-                        <div className="item"><input className='add-number'/></div>
-                        <div className="item"><input className='add-number'/></div>
+                        
                     </div>
                 </div>
                 <div className='b-m-row'>
@@ -120,8 +128,7 @@ const handlePlayerOne: (e:any) => void = (e:any) =>{setPlayerOne(e.target.value)
                         <div className="b-m-deaths"><span>DEATHS</span></div>
                         <div className="item"><input className='add-number'/></div>
                         <div className="item"><input className='add-number'/></div>
-                        <div className="item"><input className='add-number'/></div>
-                        <div className="item"><input className='add-number'/></div>
+                        
                     </div>
                 </div>
                 </div>      
@@ -134,8 +141,7 @@ const handlePlayerOne: (e:any) => void = (e:any) =>{setPlayerOne(e.target.value)
                     <div className="b-m-players"><span>PLAYERS</span></div>
                         <span className="items"><input className='add-player' placeholder='Player name...'/></span>
                         <span className="items"><input className='add-player' placeholder='Player name...'/></span>
-                        <span className="items"><input className='add-player' placeholder='Player name...'/></span>
-                        <span className="items"><input className='add-player' placeholder='Player name...'/></span>
+                        
                     </div>
                 </div>
                 
@@ -144,8 +150,7 @@ const handlePlayerOne: (e:any) => void = (e:any) =>{setPlayerOne(e.target.value)
                         <div className="b-m-kills"><span>KILLS</span></div>
                         <div className="item"><input className='add-number'/></div>
                         <div className="item"><input className='add-number'/></div>
-                        <div className="item"><input className='add-number'/></div>
-                        <div className="item"><input className='add-number'/></div>
+                        
                     </div>
                 </div>
                 <div className='b-m-row'>
@@ -153,8 +158,7 @@ const handlePlayerOne: (e:any) => void = (e:any) =>{setPlayerOne(e.target.value)
                         <div className="b-m-deaths"><span>DEATHS</span></div>
                         <div className="item"><input className='add-number'/></div>
                         <div className="item"><input className='add-number'/></div>
-                        <div className="item"><input className='add-number'/></div>
-                        <div className="item"><input className='add-number'/></div>
+                        
                     </div>
                 </div>
                 </div>
@@ -164,7 +168,7 @@ const handlePlayerOne: (e:any) => void = (e:any) =>{setPlayerOne(e.target.value)
 
             </div>
             <div className='big-match-btn-container'>
-            <button className='save-btn' onClick={() => handleSubmit}>SAVE</button>
+            <button className='save-btn' onClick={(e) => handleSubmit(e)}>SAVE</button>
             <button className='close-btn' onClick={handleAddMatchOverlay}>CLOSE</button>
             </div>
 
@@ -186,15 +190,17 @@ const handlePlayerOne: (e:any) => void = (e:any) =>{setPlayerOne(e.target.value)
 
 
             
-{/*             
+           
             <input type="text" id='nameOne' name='nameOne' placeholder='nameOne' onChange={(e) => handleNameOneInput(e)} />
             <input type="text" id='nameTwo' name='nameTwo' placeholder='nameTwo' onChange={(e) => handleNameTwoInput(e)} />
-            <input type="text" id='teamOne' name='teamOne' placeholder='teamOne' onChange={(e) => handleTeamOne(e)} />
-            <input type="text" id='teamOne' name='teamOne' placeholder='teamOne' onChange={(e) => handleTeamTwo(e)} />
+            {/* <input type="text" id='teamOne' name='teamOne' placeholder='teamOne' onChange={(e) => handleTeamOne(e)} />
+            <input type="text" id='teamOne' name='teamOne' placeholder='teamOne' onChange={(e) => handleTeamTwo(e)} /> */}
                      
-            <input type="text" id='playerOne' name='playerOne' placeholder='playerOne' onChange={(e) => handlePlayerOne(e)} />
+            
+                     
 
-            <input type="submit" /> */}
+
+            <input type="submit" />  
         </div>
         }         
         

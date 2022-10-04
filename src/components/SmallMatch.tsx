@@ -78,7 +78,7 @@ const handlePlayer:  () => void = () => {
                     <div className='b-m-row'>
                     <div className='b-m-col'>
                         <div className="b-m-players"><span>PLAYERS</span></div>
-                        <span className="items">PHAWKMAN</span>
+                        <span className="items">{match.players.playerOne}</span>
                         <span className="items">TGLTN</span>
                         <span className="items">M1ME</span>
                         <span className="items">HWINN</span>
