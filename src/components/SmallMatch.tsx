@@ -29,7 +29,7 @@ const SmallMatch = ({match, matches, setMatches}: Props) => {
     setMatches(matches.filter((match) => match.matchId !== matchId))
 }
 const handlePlayer:  () => void = () => {
-    console.log('you clicked', match.nameOne)
+    console.log('you clicked', match.matchName)
    
 }
     
@@ -40,12 +40,12 @@ const handlePlayer:  () => void = () => {
                     
                     <div className='small-match-display'>
                         <div className='small-match-time-container'>
-                            <span className='small-match-date'>2022-09-25</span>
-                            <span className='small-match-time'>22:33</span>
+                            <span className='small-match-date'>{match.date}</span>
+                            
                         </div>
                     <div className='white-divider'></div>
                     
-                    <span className='small-match-headerName'>{match.nameOne}</span>
+                    <span className='small-match-headerName'>{match.matchName}</span>
                     <div className='white-divider'></div>
                     <span className='small-match-headerWin'>WIN</span>
                     <div className='white-divider'></div>
@@ -68,8 +68,9 @@ const handlePlayer:  () => void = () => {
             <div className='big-match-container'>
 
                 <header className='team-names-container'>
-                    <div className='teamOne-header'>TEAM ONE</div>
-                    <div className='teamTwo-header'><span>TEAM TWO</span></div>
+                    <div className='teamOne-header'>{match.players.playerOne}</div>
+                    <div className='vs'>VS</div>
+                    <div className='teamTwo-header'>{match.players.playerTwo}</div>
                 </header>
 
             <div className='team-big-container'>
@@ -89,13 +90,13 @@ const handlePlayer:  () => void = () => {
                 <div className='b-m-row'>
                     <div className='b-m-col'>
                         <div className="b-m-kills"><span>KILLS</span></div>
-                        <div className="item">23</div>
+                        <div className="item">{match.players.playerOneK}</div>
                     </div>
                 </div>
                 <div className='b-m-row'>
                     <div className='b-m-col'>
                         <div className="b-m-deaths"><span>DEATHS</span></div>
-                        <div className="item">2</div> 
+                        <div className="item">{match.players.playerOneD}</div> 
                     </div>
                 </div>
                 </div>      
@@ -113,13 +114,13 @@ const handlePlayer:  () => void = () => {
                 <div className='b-m-row'>
                     <div className='b-m-col'>
                         <div className="b-m-kills"><span>KILLS</span></div>
-                        <div className="item">23</div>                
+                        <div className="item">{match.players.playerTwoK}</div>                
                     </div>
                 </div>
                 <div className='b-m-row'>
                     <div className='b-m-col'>
                         <div className="b-m-deaths"><span>DEATHS</span></div>
-                        <div className="item">2</div>
+                        <div className="item">{match.players.playerTwoD}</div>
                     </div>
                 </div>
                 </div>
