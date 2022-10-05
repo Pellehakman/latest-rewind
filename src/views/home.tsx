@@ -17,6 +17,7 @@ interface Props {
 
 const Home: React.FC<Props> = () => { 
 
+
     const [overlay, setOverlay] = useState<boolean>(false);
     const [matches, setMatches] = useLocalStorage<Match[]>('matches',[])
     const [date, setDate] = useState<string>("")
@@ -32,20 +33,9 @@ const Home: React.FC<Props> = () => {
 
     const handleAddMatchOverlay: () => void = () => {setOverlay(!overlay);}
 
-    const players = {
-       playerOne:[{
-                playerOne: playerOne,
-                playerId: Date.now(),
-                playerOneK: playerOneK,
-                playerOneD: playerOneD, 
- } ], 
-            playerTwo:[{
-                playerTwo: playerTwo,
-                playerId: Date.now(),
-                playerTwoK: playerTwoK,
-                playerTwoD: playerTwoD, 
-            }]
-}
+
+
+
 
 
    const handleSubmit: (e:any) => void = (e:any) => {

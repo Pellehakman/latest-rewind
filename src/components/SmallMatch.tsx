@@ -15,12 +15,45 @@ type Props = {
     match: Match
     matches: Match[];
     setMatches: React.Dispatch<React.SetStateAction<Match[]>>
+   
+    
 }
 
 const SmallMatch = ({match, matches, setMatches}: Props) => { 
 
+
+    const [pname, setPname] = useState<string>('')
+
+    
+
+
+// console.log(pname)
+const calcMatch = matches
+    const nameFind = calcMatch.map((obj) => obj.players.playerOne === `${pname}`);
+    console.log(nameFind);
+
+ 
+      const ids = calcMatch.map((obj) => obj.players.playerOneK);
+      console.log(ids); 
+
+      // FIXA SÅ ATT IF (FIND MED ID) SEN KALKYLERA.
+   function sum( obj:any ) {
+  var sum = 0;
+  for( var el in obj ) {
+    if( obj.hasOwnProperty( el ) ) {
+      sum += parseFloat( obj[el] );
+    }
+  }
+  return sum;
+}
+    
+
+var summed = sum( ids );
+console.log( "sum: "+summed );
+
     const [overlay, setOverlay] = useState<boolean>(false);
     const [hide, setHide] = useState<boolean>(true);
+ 
    
     const handleBigMatchOverlay: () => void = () => {
     setHide(!hide); setOverlay(!overlay);
@@ -28,10 +61,15 @@ const SmallMatch = ({match, matches, setMatches}: Props) => {
     const handleDelete = (matchId: number) => {
     setMatches(matches.filter((match) => match.matchId !== matchId))
 }
-const handlePlayer:  () => void = () => {
-    console.log('you clicked', match.matchName)
+const handlePlayerOne:  () => void = () => {
+    
+    let findName = match.players.playerOne
+    setPname(findName)
+
    
 }
+
+
     
     return(
         <section className='small-match-conainer' >
@@ -81,7 +119,7 @@ const handlePlayer:  () => void = () => {
                     <div className='b-m-row'>
                     <div className='b-m-col'>
                         <div className="b-m-players"><span>PLAYERS</span></div>
-                        <span className="items">{match.players.playerOne}</span>
+                        <span className="items" onClick={handlePlayerOne}>{match.players.playerOne}</span>
                         
                         
                     </div>

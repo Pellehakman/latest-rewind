@@ -5,6 +5,7 @@ export interface Match{
     date: string;
     players: {
         playerOne: string;
+        playerId?: number
         playerOneK: any;
         playerOneD: any;
         playerTwo: string
