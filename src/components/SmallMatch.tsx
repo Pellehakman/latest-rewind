@@ -6,6 +6,8 @@ import '../styles/SmallMatch.scss'
 import { GiExpand } from "react-icons/gi";
 import '../styles/Bigmatch.scss'
 import { IoClose, IoExpand } from "react-icons/io5";
+import { AiOutlineDelete } from "react-icons/ai";
+
 
 
 
@@ -79,9 +81,8 @@ const handlePlayer:  () => void = () => {
                     <div className='b-m-col'>
                         <div className="b-m-players"><span>PLAYERS</span></div>
                         <span className="items">{match.players.playerOne}</span>
-                        <span className="items">TGLTN</span>
-                        <span className="items">M1ME</span>
-                        <span className="items">HWINN</span>
+                        
+                        
                     </div>
                 </div>
                 
@@ -89,18 +90,12 @@ const handlePlayer:  () => void = () => {
                     <div className='b-m-col'>
                         <div className="b-m-kills"><span>KILLS</span></div>
                         <div className="item">23</div>
-                        <div className="item">32</div>
-                        <div className="item">45</div>
-                        <div className="item">43</div>
                     </div>
                 </div>
                 <div className='b-m-row'>
                     <div className='b-m-col'>
                         <div className="b-m-deaths"><span>DEATHS</span></div>
-                        <div className="item">2</div>
-                        <div className="item">3</div>
-                        <div className="item">4</div>
-                        <div className="item">6</div>
+                        <div className="item">2</div> 
                     </div>
                 </div>
                 </div>      
@@ -111,29 +106,20 @@ const handlePlayer:  () => void = () => {
                     <div className='b-m-row'>
                     <div className='b-m-col'>
                         <div className="b-m-players"><span>PLAYERS</span></div>
-                        <span className="items">PHAWKMAN</span>
-                        <span className="items">TGLTN</span>
-                        <span className="items">M1ME</span>
-                        <span className="items">HWINN</span>
+                        <span className="items">{match.players.playerTwo}</span>
                     </div>
                 </div>
                 
                 <div className='b-m-row'>
                     <div className='b-m-col'>
                         <div className="b-m-kills"><span>KILLS</span></div>
-                        <div className="item">23</div>
-                        <div className="item">32</div>
-                        <div className="item">45</div>
-                        <div className="item">43</div>
+                        <div className="item">23</div>                
                     </div>
                 </div>
                 <div className='b-m-row'>
                     <div className='b-m-col'>
                         <div className="b-m-deaths"><span>DEATHS</span></div>
                         <div className="item">2</div>
-                        <div className="item">3</div>
-                        <div className="item">4</div>
-                        <div className="item">6</div>
                     </div>
                 </div>
                 </div>
@@ -145,8 +131,10 @@ const handlePlayer:  () => void = () => {
            
             
             <div className='big-match-btn-container'>
-            <button className='delete-btn' onClick={() => handleDelete(match.matchId)}>DELETE</button>
+            <AiOutlineDelete className='dropdown-delete' onClick={() => handleDelete(match.matchId)}/>
+            {/* <button className='delete-btn' onClick={() => handleDelete(match.matchId)}>DELETE</button> */}
             <button className='close-btn' onClick={handleBigMatchOverlay}>CLOSE</button>
+            
             </div>
             
             

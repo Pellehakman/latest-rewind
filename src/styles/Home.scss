@@ -119,12 +119,16 @@
 }
 
 .add-number{
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 2rem;
+    height: 2rem;
 }
 .add-player{
+    background-color: variables.$container-bg-black;
     width: 6rem;
-    height: 1.5rem;
+    height: 2rem;
+   
+    @include variables.smallFont;
+    color: variables.$white-bg;
 }
 
 .add-teamOne-header{

@@ -69,7 +69,7 @@ const handlePlayerOne: (e:any) => void = (e:any) =>{setPlayerOne(e.target.value)
     
     e.preventDefault();
     setMatches([...matches, { matchId: Date.now(), nameOne, nameTwo, players:{
-        playerOne
+        playerOne, playerTwo
     } }]
     .sort((a, b) => {return b.matchId - a.matchId;}))
     
@@ -191,8 +191,8 @@ const handlePlayerOne: (e:any) => void = (e:any) =>{setPlayerOne(e.target.value)
 
             
            
-            <input type="text" id='nameOne' name='nameOne' placeholder='nameOne' onChange={(e) => handleNameOneInput(e)} />
-            <input type="text" id='nameTwo' name='nameTwo' placeholder='nameTwo' onChange={(e) => handleNameTwoInput(e)} />
+            {/* <input type="text" id='nameOne' name='nameOne' placeholder='nameOne' onChange={(e) => handleNameOneInput(e)} />
+            <input type="text" id='nameTwo' name='nameTwo' placeholder='nameTwo' onChange={(e) => handleNameTwoInput(e)} /> */}
             {/* <input type="text" id='teamOne' name='teamOne' placeholder='teamOne' onChange={(e) => handleTeamOne(e)} />
             <input type="text" id='teamOne' name='teamOne' placeholder='teamOne' onChange={(e) => handleTeamTwo(e)} /> */}
                      
@@ -200,7 +200,7 @@ const handlePlayerOne: (e:any) => void = (e:any) =>{setPlayerOne(e.target.value)
                      
 
 
-            <input type="submit" />  
+            {/* <input type="submit" />   */}
         </div>
         }         
         

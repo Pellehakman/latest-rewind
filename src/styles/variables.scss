@@ -1,10 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
 
 $add-bg: #85A37B;
-$win-bg: #75B4D8;
-$loose-bg: #be4f4f;
+$win-bg: #0f3a53;
+$loose-bg: #470c0c;
 $edit-bg: #FF9900;
 $container-bg: #e6e6e6;
+$container-bg-black: #161616;
 $white-bg: #FFFFFF;
 $black-bg: #000000;
 $match-bg: #D7D7D7;
@@ -38,6 +39,12 @@ color: $white-bg;
 @mixin propertyFont {
     font-family: $primary-font;
     font-size: 1em;
+    font-weight: 700;
+    color: $white-bg;
+}
+@mixin SmallCardFont {
+    font-family: $primary-font;
+    font-size: 1.3em;
     font-weight: 700;
     color: $white-bg;
 }

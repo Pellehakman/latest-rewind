@@ -4,7 +4,8 @@ export interface Match{
     nameOne: string;
     nameTwo: string;
     players: {
-        playerOne:string
+        playerOne: string;
+        playerTwo: string
     }
     
     
