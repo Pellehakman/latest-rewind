@@ -9,24 +9,24 @@ import { matchRoutes } from "react-router-dom";
 interface Props{
     matches: Array<Match>;
     setMatches: React.Dispatch<React.SetStateAction<Match[]>>
+    setAllTime: Array<string>
+    
 }
 
 
 
-const MatchList: React.FC<Props> = ({matches, setMatches }) => {
-
-
-
+const MatchList: React.FC<Props> = ({ matches, setMatches }) => {
 
    
     return(
     <div className="match-list-container">
         {matches.map(match => (
             <SmallMatch 
-            match={match} 
-            key={match.matchId}
-            matches={matches}
-            setMatches={setMatches} />
+            
+                match={match}
+                key={match.matchId}
+                matches={matches}
+                setMatches={setMatches} setAllTime={undefined} />
         ))}
         
     </div>

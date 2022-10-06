@@ -12,9 +12,12 @@ export interface Match{
         playerTwoK: any
         playerTwoD: any
     }
-    
-    
-    
+   
+}
+
+export interface AllTimeData{
+    allTimeName: string;
+    allTimeKills: number
 }
 
 // export interface Match {

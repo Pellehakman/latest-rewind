@@ -22,6 +22,7 @@ const Home: React.FC<Props> = () => {
     const [matches, setMatches] = useLocalStorage<Match[]>('matches',[])
     const [date, setDate] = useState<string>("")
     const [matchName, setMatchName] = useState<string>("")
+    console.log(matches)
 
     const [playerOne, setPlayerOne] = useState<string>("")
     const [playerOneK, setPlayerOneK] = useState<string>("")
@@ -152,7 +153,7 @@ return (
         </div>
         }         
         
-        <Matchlist matches={matches} setMatches={setMatches}  />
+        <Matchlist matches={matches} setMatches={setMatches} setAllTime={[]}  />
 
 
 

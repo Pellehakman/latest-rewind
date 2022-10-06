@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useSelector } from 'react-redux';
-import { Match } from '../models/data';
+import { AllTimeData, Match } from '../models/data';
 import { RootState } from '../store';
 import '../styles/SmallMatch.scss'
 import { GiExpand } from "react-icons/gi";
@@ -15,170 +15,173 @@ type Props = {
     match: Match
     matches: Match[];
     setMatches: React.Dispatch<React.SetStateAction<Match[]>>
+    setAllTime: any
    
-    
 }
 
-const SmallMatch = ({match, matches, setMatches}: Props) => { 
-
-
-    const [pname, setPname] = useState<string>('')
-
-    
-
-
-// console.log(pname)
-const calcMatch = matches
-    const nameFind = calcMatch.map((obj) => obj.players.playerOne === `${pname}`);
-    console.log(nameFind);
-
- 
-      const ids = calcMatch.map((obj) => obj.players.playerOneK);
-      console.log(ids); 
-
-      // FIXA SÅ ATT IF (FIND MED ID) SEN KALKYLERA.
-   function sum( obj:any ) {
-  var sum = 0;
-  for( var el in obj ) {
-    if( obj.hasOwnProperty( el ) ) {
-      sum += parseFloat( obj[el] );
-    }
-  }
-  return sum;
-}
-    
-
-var summed = sum( ids );
-console.log( "sum: "+summed );
+const SmallMatch = ({ match, matches, setMatches, setAllTime }: Props) => {
 
     const [overlay, setOverlay] = useState<boolean>(false);
     const [hide, setHide] = useState<boolean>(true);
- 
-   
+
+    
+  
     const handleBigMatchOverlay: () => void = () => {
-    setHide(!hide); setOverlay(!overlay);
-}
+        setHide(!hide); setOverlay(!overlay);
+    }
     const handleDelete = (matchId: number) => {
-    setMatches(matches.filter((match) => match.matchId !== matchId))
-}
-const handlePlayerOne:  () => void = () => {
-    
-    let findName = match.players.playerOne
-    setPname(findName)
-
-   
-}
+        setMatches(matches.filter((match) => match.matchId !== matchId))
+    }
 
 
-    
-    return(
+    const handlePlayer: (e: any) => void = (e: any) => {
+
+        let pname = (e.target.outerText)
+        // console.log(pname)
+
+        // find all matches with specific player name
+        let specPlayerMatch = matches.filter(obj => {
+            return obj.players.playerOne === `${pname}`
+        })
+
+        // search in specific arrays for kills
+        const specPlayerStats = specPlayerMatch.map((obj) => obj.players.playerOneK);
+
+
+        // calc all kills
+        function sum(obj: any) {
+            let sum = 0;
+            for (let kill in obj) {
+                if (obj.hasOwnProperty(kill)) {
+                    sum += parseFloat(obj[kill]);
+                }
+            }
+            return sum;
+        }
+
+
+        var summed = sum(specPlayerStats);
+        console.log('all kills for this player', summed);
+
+
+        let allTimeData = {
+            allTimeName: pname,
+            allTimeKills: summed
+        }
+        setAllTime(allTimeData)
+
+    }
+
+
+
+    return (
         <section className='small-match-conainer' >
-            {hide && 
+            {hide &&
                 <div className='small-match'>
-                    
+
                     <div className='small-match-display'>
                         <div className='small-match-time-container'>
                             <span className='small-match-date'>{match.date}</span>
-                            
+
                         </div>
-                    <div className='white-divider'></div>
-                    
-                    <span className='small-match-headerName'>{match.matchName}</span>
-                    <div className='white-divider'></div>
-                    <span className='small-match-headerWin'>WIN</span>
-                    <div className='white-divider'></div>
-                    <div className='drowdown-container'>
+                        <div className='white-divider'></div>
 
-                    <GiExpand className='dropdown' onClick={handleBigMatchOverlay}/>
+                        <span className='small-match-headerName'>{match.matchName}</span>
+                        <div className='white-divider'></div>
+                        <span className='small-match-headerWin'>WIN</span>
+                        <div className='white-divider'></div>
+                        <div className='drowdown-container'>
+
+                            <GiExpand className='dropdown' onClick={handleBigMatchOverlay} />
+                        </div>
+
                     </div>
 
-                    </div>
-                    
-                    
-                    
-                    
-                    
-                
+
+
+
+
+
                 </div>}
-            
-            {overlay && 
-            //---------------//BIG CARD---------------//
-            <div className='big-match-container'>
 
-                <header className='team-names-container'>
-                    <div className='teamOne-header'>{match.players.playerOne}</div>
-                    <div className='vs'>VS</div>
-                    <div className='teamTwo-header'>{match.players.playerTwo}</div>
-                </header>
+            {overlay &&
+                //---------------//BIG CARD---------------//
+                <div className='big-match-container'>
 
-            <div className='team-big-container'>
-            
-                        
+                    <header className='team-names-container'>
+                        <div className='teamOne-header'>{match.players.playerOne}</div>
+                        <div className='vs'>VS</div>
+                        <div className='teamTwo-header'>{match.players.playerTwo}</div>
+                    </header>
 
-                <div className='big-match-team'>
-                    <div className='b-m-row'>
-                    <div className='b-m-col'>
-                        <div className="b-m-players"><span>PLAYERS</span></div>
-                        <span className="items" onClick={handlePlayerOne}>{match.players.playerOne}</span>
-                        
-                        
-                    </div>
-                </div>
-                
-                <div className='b-m-row'>
-                    <div className='b-m-col'>
-                        <div className="b-m-kills"><span>KILLS</span></div>
-                        <div className="item">{match.players.playerOneK}</div>
-                    </div>
-                </div>
-                <div className='b-m-row'>
-                    <div className='b-m-col'>
-                        <div className="b-m-deaths"><span>DEATHS</span></div>
-                        <div className="item">{match.players.playerOneD}</div> 
-                    </div>
-                </div>
-                </div>      
+                    <div className='team-big-container'>
 
-                <div className='big-divider'></div>
 
-                <div className='big-match-team'>
-                    <div className='b-m-row'>
-                    <div className='b-m-col'>
-                        <div className="b-m-players"><span>PLAYERS</span></div>
-                        <span className="items">{match.players.playerTwo}</span>
-                    </div>
-                </div>
-                
-                <div className='b-m-row'>
-                    <div className='b-m-col'>
-                        <div className="b-m-kills"><span>KILLS</span></div>
-                        <div className="item">{match.players.playerTwoK}</div>                
-                    </div>
-                </div>
-                <div className='b-m-row'>
-                    <div className='b-m-col'>
-                        <div className="b-m-deaths"><span>DEATHS</span></div>
-                        <div className="item">{match.players.playerTwoD}</div>
-                    </div>
-                </div>
-                </div>
-                    
-                
-             
 
-            </div>
-           
-            
-            <div className='big-match-btn-container'>
-            <AiOutlineDelete className='dropdown-delete' onClick={() => handleDelete(match.matchId)}/>
-            {/* <button className='delete-btn' onClick={() => handleDelete(match.matchId)}>DELETE</button> */}
-            <button className='close-btn' onClick={handleBigMatchOverlay}>CLOSE</button>
-            
-            </div>
-            
-            
-            </div>}
-            </section>
+                        <div className='big-match-team'>
+                            <div className='b-m-row'>
+                                <div className='b-m-col'>
+                                    <div className="b-m-players"><span>PLAYERS</span></div>
+                                    <span className="items" onClick={handlePlayer}>{match.players.playerOne}</span>
+
+
+                                </div>
+                            </div>
+
+                            <div className='b-m-row'>
+                                <div className='b-m-col'>
+                                    <div className="b-m-kills"><span>KILLS</span></div>
+                                    <div className="item">{match.players.playerOneK}</div>
+                                </div>
+                            </div>
+                            <div className='b-m-row'>
+                                <div className='b-m-col'>
+                                    <div className="b-m-deaths"><span>DEATHS</span></div>
+                                    <div className="item">{match.players.playerOneD}</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className='big-divider'></div>
+
+                        <div className='big-match-team'>
+                            <div className='b-m-row'>
+                                <div className='b-m-col'>
+                                    <div className="b-m-players"><span>PLAYERS</span></div>
+                                    <span className="items">{match.players.playerTwo}</span>
+                                </div>
+                            </div>
+
+                            <div className='b-m-row'>
+                                <div className='b-m-col'>
+                                    <div className="b-m-kills"><span>KILLS</span></div>
+                                    <div className="item">{match.players.playerTwoK}</div>
+                                </div>
+                            </div>
+                            <div className='b-m-row'>
+                                <div className='b-m-col'>
+                                    <div className="b-m-deaths"><span>DEATHS</span></div>
+                                    <div className="item">{match.players.playerTwoD}</div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+
+
+                    <div className='big-match-btn-container'>
+                        <AiOutlineDelete className='dropdown-delete' onClick={() => handleDelete(match.matchId)} />
+                        {/* <button className='delete-btn' onClick={() => handleDelete(match.matchId)}>DELETE</button> */}
+                        <button className='close-btn' onClick={handleBigMatchOverlay}>CLOSE</button>
+
+                    </div>
+
+
+                </div>}
+        </section>
     )
 }
 
