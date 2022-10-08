@@ -1,54 +1,53 @@
-//  [{
-//      "matchId": 1364627699365,
-//      "date": "2022-22-22",
-//      "teams": [{
-//          "teamOne": [{
-//              "teamName": "blue",
-//              "players": [{
-//                      "playerOne": "PHWAKMAN",
-//                      "kills": 20,
-//                      "deaths": 3
-//                  },
-//                  {
-//                      "playerOne": "EKKANN",
-//                      "kills": 30,
-//                      "deaths": 6
-//                  },
-//                  {
-//                      "playerOne": "LIRAPUB",
-//                      "kills": 30,
-//                      "deaths": 6
-//                  },
-//                  {
-//                      "playerOne": "JEPPEZA",
-//                      "kills": 30,
-//                      "deaths": 6
-//                  }
-//              ]
-//          }],
-//          "teamTwo": [{
-//              "teamName": "red",
-//              "players": [{
-//                      "playerOne": "TGLTN",
-//                      "kills": 20,
-//                      "deaths": 3
-//                  },
-//                  {
-//                      "playerOne": "HWINN",
-//                      "kills": 30,
-//                      "deaths": 6
-//                  },
-//                  {
-//                      "playerOne": "SHRIMZY",
-//                      "kills": 30,
-//                      "deaths": 6
-//                  },
-//                  {
-//                      "playerOne": "M1ME",
-//                      "kills": 30,
-//                      "deaths": 6
-//                  }
-//              ]
-//          }]
-//      }]
-//  }]
+ [{
+    "date": "2022-10-23",
+    "matchId": 1364627699369,
+    "matchName": "MIRAMAR",
+    "playerOneWinner": "LOOSE",
+    "playerTwowinner": "WIN",
+    "players":{
+        "playerOne": "PHAWKMAN",
+        "playerOneK": "23",
+        "playerOneD": "12",
+        "playerTwo": "TGLTN",
+        "playerTwoK": "12",
+        "playerTwoD": "23"
+
+    }
+    
+ }, 
+ {
+    "date": "2022-10-21",
+    "matchId": 1364627699368,
+    "matchName": "ERANGEL",
+    "playerOneWinner": "LOOSE",
+    "playerTwoWinner": "WIN",
+    "players":{
+        "playerOne": "PHAWKMAN",
+        "playerOneK": "44",
+        "playerOneD": "11",
+        "playerTwo": "TGLTN",
+        "playerTwoK": "52",
+        "playerTwoD": "23"
+
+    }
+    
+ },
+ {
+    "date": "2022-10-22",
+    "matchId": 1364627699367,
+    "matchName": "VIKENDI",
+    "playerOneWinner": "LOOSE",
+    "playerTwoWinner": "WIN",
+    "players":{
+        "playerOne": "PHAWKMAN",
+        "playerOneK": "12",
+        "playerOneD": "4",
+        "playerTwo": "TGLTN",
+        "playerTwoK": "52",
+        "playerTwoD": "23"
+
+    }
+    
+ }]
+    
+     

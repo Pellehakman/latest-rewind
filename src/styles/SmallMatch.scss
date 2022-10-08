@@ -4,7 +4,7 @@
     @include variables.smallMatchContainer();
     justify-content: space-between;
     align-items: center;
-    background-color: variables.$loose-bg;
+    background-color: variables.$win-bg;
     margin-bottom: .5rem;
     @include variables.outerStyle
     
@@ -26,7 +26,14 @@
     @include variables.flexContainer(row);
     flex: 1;
 }
+.info-box{
+    padding: 1rem;
+    background-color: variables.$card-col2;
+    border-bottom: 4px solid variables.$card-grey;
+    @include variables.propertyFont();
+    font-weight: 100;
 
+}
 .small-match-headerName{
     display: flex;
     @include variables.headerFont();
@@ -38,6 +45,7 @@
     display: flex;
     @include variables.headerFont();
     @include variables.center();
+    padding: 0 1rem 0 1rem;
     flex: 1
     
 }
@@ -104,23 +112,20 @@
 .team-small-container{
     display: flex;
     flex-direction: column;
-    flex: 1;
-    
-    
+    flex: 1;    
 }
+
 .third{
     display: flex;
-    flex: 1;
-    
-    
+    flex: 1; 
 }
+
 .kill{
     width: 3rem;
 }
+
 .death{
     width: 3rem;
-
-
 }
 .property-container{
    display: flex;
@@ -136,14 +141,26 @@
     border-bottom: .1em black solid;
     height: 1.9rem;
     justify-content: space-evenly;
-    @include variables.smallFont
+    @include variables.smallFont;
+    
     
 }
 
 .big-match-btn-container{
     @include variables.flexContainer(row);
     background-color: variables.$black-bg;
-   
+}
+
+.map-btn{
+    @include variables.deleteBtn();
+    background-color: variables.$card-col2;
+    border-bottom: 4px solid variables.$card-grey;
+
+}
+.date-btn{
+    @include variables.deleteBtn();
+    background-color: variables.$card-col2;
+    border-bottom: 4px solid variables.$card-grey;
 
 }
 .delete-btn{
@@ -153,8 +170,9 @@
 }
 .close-btn{
     @include variables.deleteBtn();
-    flex: 4;
-    background-color: rgb(0, 0, 0);
+    flex: 7;
+    background-color: variables.$card-col2;
+    border-left: 4px solid variables.$card-grey;
 
 
 }
@@ -206,7 +224,7 @@
 .team-big-container{ 
     display: flex;
     flex: 1;
-    background-color: variables.$container-bg-black
+    background-color: variables.$card-col2
 }
 
 .big-match-team{
@@ -214,6 +232,7 @@
     flex-direction: row;
     flex: 1;
     justify-content: space-between; 
+    
 }
 
 .b-m-row{
@@ -232,31 +251,34 @@
 }
 
 .b-m-players{   
-    background-color: black;
+    background-color: variables.$card-col2;
     @include variables.propertyFont;
     padding: .3rem;   
+
+    border-bottom: 4px solid variables.$card-grey;
 }
 
 .b-m-kills{
     
     padding: .3rem;
     display: flex;  
-    background-color: black;
+    background-color: variables.$card-col2;
     @include variables.propertyFont;
     justify-content: center;
+    border-bottom: 4px solid variables.$card-grey;
 
 }
 .b-m-deaths{
     padding: .3rem;
     display: flex;
-    background-color: black;
+    background-color: variables.$card-col2;
     @include variables.propertyFont;
-    justify-content: center
-
+    justify-content: center;
+    border-bottom: 4px solid variables.$card-grey;
 }
 
 .b-m-kd{   
-    background-color: black;
+    background-color: variables.$card-col2;
     @include variables.propertyFont;
     justify-content: center;
 }
@@ -264,10 +286,10 @@
 .item{ 
     @include variables.SmallCardFont();
     @include variables.center();
-    
     display: flex;
     flex:1;
     padding: .5rem;
+    border-bottom: 4px solid variables.$card-grey;
 }
 
 .items{ 
@@ -276,11 +298,12 @@
     padding: .5rem;
     display: flex;
     flex:1; 
+    border-bottom: 4px solid variables.$card-grey;
 }
 
 .big-divider{
     width: 4px;
-    background-color: black;
+    background-color: variables.$card-grey;
 }
 
 

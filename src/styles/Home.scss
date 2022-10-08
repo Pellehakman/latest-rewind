@@ -15,17 +15,30 @@
   ::-webkit-scrollbar-thumb:hover {
     background: #555;
   }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
 .home-container{
     @include variables.flexContainer(row);
     width: 100vw;
     height: 100vh;
     justify-content: center;
-    align-items: center;
+    
     position: relative; 
+    
 }
 
 .all-time-container{
     padding: .5rem;
+    background-color: variables.$white-bg;
     
     height: 40rem;
    
@@ -35,15 +48,25 @@
 }
 .all-time-player{
     @include variables.smallMatchContainer();
-    @include variables.propertyFont;
+    @include variables.headerFont;
     background-color: variables.$edit-bg;
     @include variables.center;
     @include variables.outerStyle
 
 }
+.all-time-list{
+    padding: 1rem;
+    @include variables.SmallCardFont;
+    color: black;
+    @include variables.flexContainer();
+    
+
+}
 .main-container{
-    background-color: rgb(255, 255, 255);
+    background-color: variables.$container-bg;
     display: flex;
+   justify-content: center;
+    flex-wrap: wrap;
     
    
 }
@@ -52,7 +75,7 @@
 
 .matches-container{
     height: 40rem;
-    width: 35rem;
+    width: 30rem;
     background-color: variables.$white-bg;
     padding: .5rem;
    
@@ -121,18 +144,19 @@
 .add-number{
     width: 2rem;
     height: 2rem;
-    background-color: variables.$container-bg-black;
+    background-color: variables.$card-grey;
     @include variables.smallFont;
-    color: variables.$white-bg;
+    color: black;
+    border-radius: .2em;
     text-align: center;
 }
 .add-player{
-    background-color: variables.$container-bg-black;
+    background-color: variables.$card-grey;
     width: 6rem;
     height: 2rem;
-   
+    border-radius: .2em;
     @include variables.smallFont;
-    color: variables.$white-bg;
+    color: variables.$black-bg;
 }
 
 .add-teamOne-header{
@@ -158,4 +182,20 @@
 .add-teamName{
     height: 1.5rem;
     
+}
+
+@media only screen and (max-width: 786px) {
+    .all-time-container{
+        width: 100%;
+        height: 100%;
+    }
+    .matches-container{
+        height: 100%;
+        max-height: 20rem;
+        width: 100%;
+    }
+
+    .add-player{
+        width: 100%
+    }
 }

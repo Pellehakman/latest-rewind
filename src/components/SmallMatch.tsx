@@ -1,55 +1,52 @@
-import { useState } from 'react'
-import { useSelector } from 'react-redux';
+import { useEffect, useState } from 'react'
 import { AllTimeData, Match } from '../models/data';
-import { RootState } from '../store';
 import '../styles/SmallMatch.scss'
 import { GiExpand } from "react-icons/gi";
 import '../styles/Bigmatch.scss'
-import { IoClose, IoExpand } from "react-icons/io5";
-import { AiOutlineDelete } from "react-icons/ai";
-
-
-
 
 type Props = {
     match: Match
     matches: Match[];
     setMatches: React.Dispatch<React.SetStateAction<Match[]>>
-    setAllTime: any
-   
+    setSendData: any
 }
 
-const SmallMatch = ({ match, matches, setMatches, setAllTime }: Props) => {
+const SmallMatch = ({ match, matches, setMatches, setSendData }: Props) => {
+
+    
 
     const [overlay, setOverlay] = useState<boolean>(false);
     const [hide, setHide] = useState<boolean>(true);
-
-    
   
     const handleBigMatchOverlay: () => void = () => {
-        setHide(!hide); setOverlay(!overlay);
-    }
+        setHide(!hide); setOverlay(!overlay);}
+             
     const handleDelete = (matchId: number) => {
-        setMatches(matches.filter((match) => match.matchId !== matchId))
-    }
+        setMatches(matches.filter((match) => match.matchId !== matchId))}
 
-
-    const handlePlayer: (e: any) => void = (e: any) => {
-
-        let pname = (e.target.outerText)
-        // console.log(pname)
-
-        // find all matches with specific player name
+    const handlePlayerOne: (e: any) => void = (e: any) => {
+        
+        let playerOneClick = (e.target.outerText)
         let specPlayerMatch = matches.filter(obj => {
-            return obj.players.playerOne === `${pname}`
-        })
+            return obj.players.playerOne === `${playerOneClick}`}).slice(0, 10)
+            const specPlayerStats = specPlayerMatch.map((obj) => obj.players.playerOneK);
 
-        // search in specific arrays for kills
-        const specPlayerStats = specPlayerMatch.map((obj) => obj.players.playerOneK);
+            let winAmount = specPlayerMatch.filter(obj => {
+                return obj.playerOneWinner === `WIN`})
+            let totalWin = winAmount.length
+
+                let drawAmount = specPlayerMatch.filter(obj => {
+                    return obj.playerOneWinner === `DRAW`})
+                let totalDraw = drawAmount.length
+
+                let looseAmount = specPlayerMatch.filter(obj => {
+                    return obj.playerOneWinner === `LOOSE`})
+                let totalLoose = looseAmount.length
+
+                // console.log(totalLoose, totalDraw, totalWin)
 
 
-        // calc all kills
-        function sum(obj: any) {
+       function sum(obj: any) {
             let sum = 0;
             for (let kill in obj) {
                 if (obj.hasOwnProperty(kill)) {
@@ -59,18 +56,63 @@ const SmallMatch = ({ match, matches, setMatches, setAllTime }: Props) => {
             return sum;
         }
 
-
-        var summed = sum(specPlayerStats);
-        console.log('all kills for this player', summed);
-
-
-        let allTimeData = {
-            allTimeName: pname,
-            allTimeKills: summed
+        let summed = sum(specPlayerStats);
+        let allTimeData: AllTimeData = { 
+            allTimeName: playerOneClick, 
+            allTimeKills: summed,
+            totalWin: totalWin,
+            totalDraw: totalDraw,
+            totalLoose: totalLoose,
         }
-        setAllTime(allTimeData)
+        setSendData(allTimeData);
+        // console.log(allTimeData)        
+}
+//LÄGG ALLT I MATCEHS SOM VANLIGT OCH RENSA DET SOM VAR.
+const handlePlayerTwo: (e: any) => void = (e: any) => {
+        
+    let playerOneClick = (e.target.outerText)
+    let specPlayerMatch = matches.filter(obj => {
+        return obj.players.playerTwo === `${playerOneClick}`}).slice(0, 10)
+        const specPlayerStats = specPlayerMatch.map((obj) => obj.players.playerTwoK);
 
+        
+        let winAmount = specPlayerMatch.filter(obj => {
+            return obj.playerTwoWinner === `WIN`})
+        let totalWin = winAmount.length
+
+            let drawAmount = specPlayerMatch.filter(obj => {
+                return obj.playerTwoWinner === `DRAW`})
+            let totalDraw = drawAmount.length
+
+            let looseAmount = specPlayerMatch.filter(obj => {
+                return obj.playerTwoWinner === `LOOSE`})
+            let totalLoose = looseAmount.length
+
+            
+
+   function sum(obj: any) {
+        let sum = 0;
+        for (let kill in obj) {
+            if (obj.hasOwnProperty(kill)) {
+                sum += parseFloat(obj[kill]);
+            }
+        }
+        return sum;
     }
+
+    let summed = sum(specPlayerStats);
+    let allTimeData: AllTimeData = { 
+        allTimeName: playerOneClick, 
+        allTimeKills: summed,
+        totalWin: totalWin,
+        totalDraw: totalDraw,
+        totalLoose: totalLoose,
+    }
+    setSendData(allTimeData);
+          
+}
+
+
 
 
 
@@ -78,7 +120,6 @@ const SmallMatch = ({ match, matches, setMatches, setAllTime }: Props) => {
         <section className='small-match-conainer' >
             {hide &&
                 <div className='small-match'>
-
                     <div className='small-match-display'>
                         <div className='small-match-time-container'>
                             <span className='small-match-date'>{match.date}</span>
@@ -88,7 +129,10 @@ const SmallMatch = ({ match, matches, setMatches, setAllTime }: Props) => {
 
                         <span className='small-match-headerName'>{match.matchName}</span>
                         <div className='white-divider'></div>
-                        <span className='small-match-headerWin'>WIN</span>
+                        <span className='small-match-headerWin'>
+                            {match.playerOneWinner}
+                            
+                            </span>
                         <div className='white-divider'></div>
                         <div className='drowdown-container'>
 
@@ -97,11 +141,6 @@ const SmallMatch = ({ match, matches, setMatches, setAllTime }: Props) => {
 
                     </div>
 
-
-
-
-
-
                 </div>}
 
             {overlay &&
@@ -109,22 +148,18 @@ const SmallMatch = ({ match, matches, setMatches, setAllTime }: Props) => {
                 <div className='big-match-container'>
 
                     <header className='team-names-container'>
-                        <div className='teamOne-header'>{match.players.playerOne}</div>
+                        <div className='teamOne-header'onClick={handlePlayerOne}>{match.players.playerOne}</div>
                         <div className='vs'>VS</div>
-                        <div className='teamTwo-header'>{match.players.playerTwo}</div>
+                        <div className='teamTwo-header'onClick={handlePlayerTwo}>{match.players.playerTwo}</div>
                     </header>
-
+                    <span className='info-box'>To see last 10 games data, click on any player name</span>
                     <div className='team-big-container'>
-
-
 
                         <div className='big-match-team'>
                             <div className='b-m-row'>
                                 <div className='b-m-col'>
                                     <div className="b-m-players"><span>PLAYERS</span></div>
-                                    <span className="items" onClick={handlePlayer}>{match.players.playerOne}</span>
-
-
+                                    <span className="items" onClick={handlePlayerOne}>{match.players.playerOne}</span>
                                 </div>
                             </div>
 
@@ -148,7 +183,7 @@ const SmallMatch = ({ match, matches, setMatches, setAllTime }: Props) => {
                             <div className='b-m-row'>
                                 <div className='b-m-col'>
                                     <div className="b-m-players"><span>PLAYERS</span></div>
-                                    <span className="items">{match.players.playerTwo}</span>
+                                    <span className="items" onClick={handlePlayerTwo}>{match.players.playerTwo}</span>
                                 </div>
                             </div>
 
@@ -165,21 +200,12 @@ const SmallMatch = ({ match, matches, setMatches, setAllTime }: Props) => {
                                 </div>
                             </div>
                         </div>
-
-
-
-
                     </div>
 
-
-                    <div className='big-match-btn-container'>
-                        <AiOutlineDelete className='dropdown-delete' onClick={() => handleDelete(match.matchId)} />
-                        {/* <button className='delete-btn' onClick={() => handleDelete(match.matchId)}>DELETE</button> */}
+                    <div className='big-match-btn-container'>  
+                        <button className='delete-btn' onClick={() => handleDelete(match.matchId)}>DELETE</button>
                         <button className='close-btn' onClick={handleBigMatchOverlay}>CLOSE</button>
-
                     </div>
-
-
                 </div>}
         </section>
     )

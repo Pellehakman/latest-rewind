@@ -3,6 +3,8 @@ export interface Match{
     matchId: number;
     matchName: string;
     date: string;
+    playerOneWinner: string;
+    playerTwoWinner: string
     players: {
         playerOne: string;
         playerId?: number
@@ -16,8 +18,13 @@ export interface Match{
 }
 
 export interface AllTimeData{
+    
     allTimeName: string;
-    allTimeKills: number
+    allTimeKills: number;
+    totalWin: number;
+    totalDraw: number
+    totalLoose: number;
+    
 }
 
 // export interface Match {

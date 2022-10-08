@@ -4,7 +4,7 @@ export default function Nav() {
 
 
     return (         
-       <nav className='nav-container'>THIS IS NAV</nav>
+       <nav className='nav-container'>1 VS 1</nav>
     )
 };
 
