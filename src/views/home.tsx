@@ -40,6 +40,10 @@ const Home: React.FC<Props> = () => {
     const [matches, setMatches] = useLocalStorage<Match[]>('matches',[])
     const [playerMatches, setPlayerMatches] = useState<Match[]>([])
     console.log(playerMatches)
+
+
+
+
     const [date, setDate] = useState<string>("")
     const [matchName, setMatchName] = useState<string>("ERANGEL")
     const [sendData, setSendData] = useState<AllTimeData[]>([])
@@ -101,7 +105,7 @@ const Home: React.FC<Props> = () => {
     setOverlay(!overlay)   
 };
 
-const handlePlayerMatches: (e: any) => void = (e: any) => {
+const handlePlayerMatches: (e: any) => void = () => {
         
     let playerOneClick = sendData.allTimeName
     let showPlayerMatch = matches.filter(obj => {
