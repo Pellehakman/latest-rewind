@@ -6,9 +6,7 @@
     align-items: center;
     background-color: variables.$win-bg;
     margin-bottom: .5rem;
-    @include variables.outerStyle
-    
-    
+    @include variables.outerStyle   
 }
 
 .small-match-time-container{
@@ -84,7 +82,6 @@
 	}
 }
 
-
 .small-overlay{
     @include variables.flexContainer(row);
 }
@@ -112,6 +109,7 @@
 .death{
     width: 3rem;
 }
+
 .property-container{
    display: flex;
     background-color: variables.$loose-bg;
@@ -156,9 +154,8 @@
     background-color: variables.$card-col2;
     border-left: 4px solid variables.$card-grey;
     border-top: 4px solid variables.$card-grey;
-
-
 }
+
 .save-btn{  
     @include variables.deleteBtn();
     background-color: variables.$add-bg;
@@ -167,7 +164,6 @@
 }
 
 .big-match-container{
-    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

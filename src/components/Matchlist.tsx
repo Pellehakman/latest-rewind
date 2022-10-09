@@ -7,6 +7,7 @@ import NewSmallMatch from "./NewSmallMatch";
 
 interface Props{
     matches: Array<Match>;
+    allTimeData: AllTimeData
     setMatches: React.Dispatch<React.SetStateAction<Match[]>>
     setSendData: React.Dispatch<React.SetStateAction<AllTimeData[]>>
     filterOverlay: boolean

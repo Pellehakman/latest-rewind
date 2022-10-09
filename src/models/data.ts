@@ -6,48 +6,23 @@ export interface Match{
     playerOneWinner: string;
     playerTwoWinner: string
     players: {
-        playerOne: any;
+        playerOne?: any;
         playerId?: number
-        playerOneK: any;
-        playerOneD: any;
+        playerOneK: number;
+        playerOneD: number;
         playerTwo: string
-        playerTwoK: any
-        playerTwoD: any
+        playerTwoK: number
+        playerTwoD: number
     }
    
 }
 
-export type AllTimeData = {
+export interface AllTimeData{
     
-    allTimeName: string;
+    allTimeName?: string;
     allTimeKills: number;
     totalWin: number;
     totalDraw: number
     totalLoose: number;
     
 }
-
-// export interface Match {
-//     game: string;
-//     datePlayed: string;
-//     matchLength: string;
-//     teamSize: number;
-//     teamAmount: number;
-//     teamOneWin: boolean;
-//     teamTwoWin: boolean;
-//     teamOne: {
-//       players: Array<string>;
-//       teamName?: string;
-//       characterName?: string;
-//     };
-//     teamTwo: {
-//       enemyPlayers: Array<string>;
-//       teamName?: string;
-//       characterName?: string;
-//     };
-//     matchKey: number;
-//     finalResult?: string;
-//   }
-//   [];
-  
-//   export default Match;

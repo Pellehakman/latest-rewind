@@ -1,151 +1,168 @@
  [{
-    "date": "2022-10-23",
-    "matchId": 1464627699369,
+    "date": "2022-10-21",
+    "matchId": 1364637699360,
     "matchName": "MIRAMAR",
-    "playerOneWinner": "LOOSE",
-    "playerTwowinner": "WIN",
+    "playerOneWinner": "WIN",
+    "playerTwowinner": "LOSE",
     "players":{
         "playerOne": "PHAWKMAN",
-        "playerOneK": "23",
-        "playerOneD": "12",
+        "playerOneK": 23,
+        "playerOneD": 12,
         "playerTwo": "TGLTN",
-        "playerTwoK": "12",
-        "playerTwoD": "23"
+        "playerTwoK": 12,
+        "playerTwoD": 23
 
     }
     
  }, 
  {
-    "date": "2022-10-21",
-    "matchId": 1364627699366,
-    "matchName": "ERANGEL",
-    "playerOneWinner": "LOOSE",
-    "playerTwoWinner": "WIN",
+    "date": "2022-10-22",
+    "matchId": 1364637699361,
+    "matchName": "PARAMO",
+    "playerOneWinner": "WIN",
+    "playerTwoWinner": "LOSE",
     "players":{
         "playerOne": "PHAWKMAN",
-        "playerOneK": "44",
-        "playerOneD": "11",
+        "playerOneK": 44,
+        "playerOneD": 11,
         "playerTwo": "TGLTN",
-        "playerTwoK": "52",
-        "playerTwoD": "23"
+        "playerTwoK": 11,
+        "playerTwoD": 44
 
     }
     
  },
  {
-    "date": "2022-10-22",
-    "matchId": 1364627699397,
+    "date": "2022-10-23",
+    "matchId": 1364637699362,
     "matchName": "VIKENDI",
     "playerOneWinner": "LOOSE",
     "playerTwoWinner": "WIN",
     "players":{
         "playerOne": "PHAWKMAN",
-        "playerOneK": "12",
-        "playerOneD": "4",
+        "playerOneK": 22,
+        "playerOneD": 25,
         "playerTwo": "TGLTN",
-        "playerTwoK": "52",
-        "playerTwoD": "23"
+        "playerTwoK": 25,
+        "playerTwoD": 22
 
     }
     
  },
  {
-    "date": "2022-10-21",
-    "matchId": 1384627699368,
+    "date": "2022-10-24",
+    "matchId": 1364637699363,
     "matchName": "ERANGEL",
-    "playerOneWinner": "WIN",
-    "playerTwoWinner": "LOOSE",
+    "playerOneWinner": "DRAW",
+    "playerTwoWinner": "DRAW",
     "players":{
         "playerOne": "PHAWKMAN",
-        "playerOneK": "54",
-        "playerOneD": "11",
+        "playerOneK": 14,
+        "playerOneD": 14,
         "playerTwo": "M1ME",
-        "playerTwoK": "22",
-        "playerTwoD": "54"
+        "playerTwoK": 14,
+        "playerTwoD": 14
 
     }
     
  },
  {
-    "date": "2022-10-21",
-    "matchId": 1764627699368,
-    "matchName": "ERANGEL",
-    "playerOneWinner": "WIN",
-    "playerTwoWinner": "LOOSE",
+    "date": "2022-10-25",
+    "matchId": 1364637699364,
+    "matchName": "VIKENDI",
+    "playerOneWinner": "LOOSE",
+    "playerTwoWinner": "WIN",
     "players":{
         "playerOne": "PHAWKMAN",
-        "playerOneK": "64",
-        "playerOneD": "11",
+        "playerOneK": 32,
+        "playerOneD": 45,
         "playerTwo": "TGLTN",
-        "playerTwoK": "52",
-        "playerTwoD": "23"
+        "playerTwoK": 45,
+        "playerTwoD": 32
 
     }
     
  },
  {
-    "date": "2022-10-21",
-    "matchId": 1334627699368,
+    "date": "2022-10-26",
+    "matchId": 1364637699365,
     "matchName": "PARAMO",
     "playerOneWinner": "LOOSE",
     "playerTwoWinner": "WIN",
     "players":{
         "playerOne": "PHAWKMAN",
-        "playerOneK": "24",
-        "playerOneD": "11",
-        "playerTwo": "TGLTN",
-        "playerTwoK": "52",
-        "playerTwoD": "23"
+        "playerOneK": 4,
+        "playerOneD": 18,
+        "playerTwo": "M1ME",
+        "playerTwoK": 18,
+        "playerTwoD": 4
 
     }
     
  },
  {
-    "date": "2022-10-21",
-    "matchId": 1364627679368,
+    "date": "2022-10-27",
+    "matchId": 1364637699366,
     "matchName": "ERANGEL",
-    "playerOneWinner": "LOOSE",
-    "playerTwoWinner": "WIN",
+    "playerOneWinner": "DRAW",
+    "playerTwoWinner": "DRAW",
     "players":{
         "playerOne": "PHAWKMAN",
-        "playerOneK": "44",
-        "playerOneD": "11",
+        "playerOneK": 14,
+        "playerOneD": 14,
         "playerTwo": "TGLTN",
-        "playerTwoK": "52",
-        "playerTwoD": "23"
+        "playerTwoK": 14,
+        "playerTwoD": 14
 
     }
     
  },{
-    "date": "2022-10-24",
-    "matchId": 1364627699368,
+    "date": "2022-10-28",
+    "matchId": 1364637699367,
     "matchName": "VIKENDI",
     "playerOneWinner": "WIN",
     "playerTwoWinner": "LOOSE",
     "players":{
         "playerOne": "PHAWKMAN",
-        "playerOneK": "64",
-        "playerOneD": "21",
-        "playerTwo": "M1ME",
-        "playerTwoK": "42",
-        "playerTwoD": "23"
+        "playerOneK": 31,
+        "playerOneD": 4,
+        "playerTwo": "KICKSTART",
+        "playerTwoK": 3,
+        "playerTwoD": 31
 
     }
     
  },
  {
-    "date": "2022-10-21",
+    "date": "2022-10-29",
     "matchId": 1364637699368,
+    "matchName": "ERANGEL",
+    "playerOneWinner": "WIN",
+    "playerTwoWinner": "LOOSE",
+    "players":{
+        "playerOne": "PHAWKMAN",
+        "playerOneK": 42,
+        "playerOneD": 13,
+        "playerTwo": "SNAKERS",
+        "playerTwoK": 13,
+        "playerTwoD": 42
+
+    }
+    
+ },
+ {
+    "date": "2022-10-20",
+    "matchId": 1364637699369,
     "matchName": "ERANGEL",
     "playerOneWinner": "LOOSE",
     "playerTwoWinner": "WIN",
     "players":{
         "playerOne": "PHAWKMAN",
-        "playerOneK": "23",
-        "playerOneD": "11",
-        "playerTwo": "HWINN",
-        "playerTwoK": "32",
-        "playerTwoD": "25"
+        "playerOneK": 13,
+        "playerOneD": 32,
+        "playerTwo": "EKKANN",
+        "playerTwoK": 32,
+        "playerTwoD": 13
 
     }
     

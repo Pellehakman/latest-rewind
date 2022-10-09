@@ -50,10 +50,12 @@ input[type=number] {
   background-color: variables.$edit-bg;
   @include variables.center;
   @include variables.outerStyle;
+  margin-bottom: .5rem;
 }
 .all-time-list {
   padding: 1rem;
   @include variables.SmallCardFont;
+  @include variables.outerStyle;
   color: black;
   @include variables.flexContainer();
 }
@@ -152,6 +154,7 @@ input[type=number] {
 .view-games-btns {
   @include variables.flexContainer();
   flex-direction: row;
+  margin-bottom: .5rem;
 }
 .view-games {
   @include variables.center();

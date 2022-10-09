@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Matchlist from '../components/Matchlist'
 import { AllTimeData, Match } from '../models/data';
 import '../styles/Home.scss'
@@ -7,9 +7,12 @@ import useLocalStorage from '../components/hooks/use-local-storage';
 interface Props {
     match: Match;
     setSendData: React.Dispatch<React.SetStateAction<AllTimeData[]>>
-    sendData: AllTimeData
+    sendData?: AllTimeData[]
     setWin: boolean
     playerOneClick: string
+    allTimeName: AllTimeData
+    
+    
 };
 
 const Home: React.FC<Props> = () => {
@@ -21,12 +24,14 @@ const Home: React.FC<Props> = () => {
     const [date, setDate] = useState<string>("")
     const [matchName, setMatchName] = useState<string>("ERANGEL")
     const [sendData, setSendData] = useState<AllTimeData[]>([])
+
+
     const [playerOne, setPlayerOne] = useLocalStorage('player', [])
-    const [playerOneK, setPlayerOneK] = useState<string>("")
-    const [playerOneD, setPlayerOneD] = useState<string>("")
+    const [playerOneK, setPlayerOneK] = useState<number>(0);
+    const [playerOneD, setPlayerOneD] = useState<number>(0);
     const [playerTwo, setPlayerTwo] = useState<string>("")
-    const [playerTwoK, setPlayerTwoK] = useState<string>("")
-    const [playerTwoD, setPlayerTwoD] = useState<string>("")
+    const [playerTwoK, setPlayerTwoK] = useState<number>(0);
+    const [playerTwoD, setPlayerTwoD] = useState<number>(0);
     const handleAddMatchOverlay: () => void = () => { setOverlay(!overlay); }
 
     const handleSubmit: (e: any) => void = (e: any) => {
@@ -45,6 +50,8 @@ const Home: React.FC<Props> = () => {
             return ""
         }
         const playerOneWinner = playerOneWin()
+        console.log(playerOneWinner)
+
 
         function playerTwoWin() {
             if (playerTwoK > playerOneK) {
@@ -109,7 +116,7 @@ const Home: React.FC<Props> = () => {
 
 
                     {overlay && <form className="add-match" onSubmit={handleSubmit}>
-                     
+                       
                         <div className='big-match-container'>
                             <header className='team-names-container'>
                                 <div className='add-teamOne-header'>{playerOne}</div>
@@ -133,7 +140,7 @@ const Home: React.FC<Props> = () => {
                                     <div className='b-m-row'>
                                         <div className='b-m-col'>
                                             <div className="b-m-kills"><span>KILLS</span></div>
-                                            <span className="item"><input className='add-number' type="text" id='playerOne' name='kills' required placeholder='K' onChange={(e) => setPlayerOneK(e.target.value)} /></span>
+                                            <span className="item"><input className='add-number' type="number"  required placeholder='K' onChange={(e) => setPlayerOneK(Number(e.target.value))} /></span>
 
 
                                         </div>
@@ -141,7 +148,7 @@ const Home: React.FC<Props> = () => {
                                     <div className='b-m-row'>
                                         <div className='b-m-col'>
                                             <div className="b-m-deaths"><span>DEATHS</span></div>
-                                            <span className="item"><input className='add-number' type="text" id='playerOne' name='kills' required placeholder='D' onChange={(e) => setPlayerOneD(e.target.value)} /></span>
+                                            <span className="item"><input className='add-number' type="text" required placeholder='D' onChange={(e) => setPlayerOneD(Number(e.target.value))} /></span>
                                         </div>
                                     </div>
                                 </div>
@@ -152,7 +159,7 @@ const Home: React.FC<Props> = () => {
                                     <div className='b-m-row'>
                                         <div className='b-m-col'>
                                             <div className="b-m-players"><span>ENEMY</span></div>
-                                            <span className="items"><input className='add-player' type="text" id='playerOne' name='playerOne' required placeholder='Enter enemy' onChange={(e) => setPlayerTwo(e.target.value)} /></span>
+                                            <span className="items"><input className='add-player' type="text"  required placeholder='Enter enemy' onChange={(e) => setPlayerTwo(e.target.value)} /></span>
 
 
                                         </div>
@@ -161,7 +168,7 @@ const Home: React.FC<Props> = () => {
                                     <div className='b-m-row'>
                                         <div className='b-m-col'>
                                             <div className="b-m-kills"><span>KILLS</span></div>
-                                            <span className="item"><input className='add-number' type="text" id='playerOne' name='kills' required placeholder='K' onChange={(e) => setPlayerTwoK(e.target.value)} /></span>
+                                            <span className="item"><input className='add-number' type="number"  required placeholder='K' onChange={(e) => setPlayerTwoK(Number(e.target.value))} /></span>
 
 
                                         </div>
@@ -169,7 +176,7 @@ const Home: React.FC<Props> = () => {
                                     <div className='b-m-row'>
                                         <div className='b-m-col'>
                                             <div className="b-m-deaths"><span>DEATHS</span></div>
-                                            <span className="item"><input className='add-number' type="text" id='playerOne' name='kills' required placeholder='D' onChange={(e) => setPlayerTwoD(e.target.value)} /></span>
+                                            <span className="item"><input className='add-number' type="text" name='kills' required placeholder='D' onChange={(e) => setPlayerTwoD(Number(e.target.value))} /></span>
                                         </div>
                                     </div>
 
@@ -218,7 +225,7 @@ const Home: React.FC<Props> = () => {
 
 
                 </div>
-             
+               
                 <div className='all-time-container'>
                     <section className='all-time-header'>
                         <span >LAST 10 GAMES</span>
