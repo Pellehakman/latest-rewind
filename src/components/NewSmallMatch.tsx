@@ -52,7 +52,7 @@ const NewSmallMatch = ({ match }: Props) => {
                         <div className='vs'>VS</div>
                         <div className='teamTwo-header'>{match.players.playerTwo}</div>
                     </header>
-                    <span className='info-box'>To see last 10 games data, click on any player name</span>
+                    <span className='info-box'>To leave, press "VIEW ALL" again</span>
                     <div className='team-big-container'>
 
                         <div className='big-match-team'>
@@ -103,7 +103,7 @@ const NewSmallMatch = ({ match }: Props) => {
                     </div>
 
                     <div className='big-match-btn-container'>  
-                        <button className='delete-btn'>DELETE</button>
+                       
                         <button className='close-btn' onClick={handleBigMatchOverlay}>CLOSE</button>
                     </div>
                 </div>}
