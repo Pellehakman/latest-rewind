@@ -5,16 +5,16 @@
   width: 10px;
 }
 ::-webkit-scrollbar-track {
-    background: #f1f1f1;
-  }
-  ::-webkit-scrollbar-thumb {
-    background: #888;
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: #555;
-  }
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -26,176 +26,205 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
-.home-container{
-    @include variables.flexContainer(row);
-    width: 100vw;
-    height: 100vh;
-    justify-content: center;
-    
-    position: relative; 
-    
+.home-container {
+  @include variables.flexContainer(row);
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+
+  position: relative;
 }
 
-.all-time-container{
-    padding: .5rem;
-    background-color: variables.$white-bg;
-    
-    height: 40rem;
-   
-}
-.all-time-header{
-    @include variables.outerStyle
-}
-.all-time-player{
-    @include variables.smallMatchContainer();
-    @include variables.headerFont;
-    background-color: variables.$edit-bg;
-    @include variables.center;
-    @include variables.outerStyle
+.all-time-container {
+  padding: .5rem;
+  background-color: variables.$white-bg;
 
+  height: 40rem;
 }
-.all-time-list{
-    padding: 1rem;
-    @include variables.SmallCardFont;
-    color: black;
+.all-time-header {
+  @include variables.outerStyle;
+}
+.all-time-player {
+  @include variables.smallMatchContainer();
+  @include variables.headerFont;
+  background-color: variables.$edit-bg;
+  @include variables.center;
+  @include variables.outerStyle;
+}
+.all-time-list {
+  padding: 1rem;
+  @include variables.SmallCardFont;
+  color: black;
+  @include variables.flexContainer();
+}
+.main-container {
+  background-color: variables.$container-bg;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.playerOne-container {
+  padding-left: 1rem;
+  @include variables.headerFont;
+  background-color: variables.$black-bg;
+  @include variables.center;
+  @include variables.outerStyle;
+  @include variables.smallMatchContainer();
+
+  .playerOne-input {
+    border: none;
     @include variables.flexContainer();
-    
+    flex: 5;
+    margin-left: 1rem;
+    height: 100%;
+    background-color: variables.$black-bg;
+    @include variables.propertyFont;
+    border: none;
+    color: variables.$white-bg;
 
-}
-.main-container{
-    background-color: variables.$container-bg;
-    display: flex;
-   justify-content: center;
-    flex-wrap: wrap;
-    
-   
-}
-
-
-
-.matches-container{
-    height: 40rem;
-    width: 30rem;
-    background-color: variables.$white-bg;
-    padding: .5rem;
-   
-    position: relative;
-    
-    overflow-y: scroll;
+    outline: none;
+  }
 }
 
-.overflow-fade{
-    height: 2rem;
-    position: absolute;
-    width: 35rem;
-    
-    background-color: rgb(33, 87, 87);
-    
-    bottom: 0;
-    
+.matches-container {
+  height: 40rem;
+  width: 30rem;
+  background-color: variables.$white-bg;
+  padding: .5rem;
+
+  position: relative;
+
+  overflow-y: scroll;
 }
 
-.add-match{
-    @include variables.flexContainer(column);
+.overflow-fade {
+  height: 2rem;
+  position: absolute;
+  width: 35rem;
 
+  background-color: rgb(33, 87, 87);
+
+  bottom: 0;
 }
-.add-btn-container{
+
+.add-match {
+  @include variables.flexContainer(column);
+}
+
+
+.header-container {
+  @include variables.flexContainer(row);
+  @include variables.headerFont();
+  padding-left: 1rem;
+  @include variables.columnSize();
+  border-radius: .1em;
+  justify-content: space-between;
+  background-color: variables.$black-bg;
+  margin-bottom: .5rem;
+
+  .playerOne-display {
+    flex: 5;
+    @include variables.propertyFont;
+    background-color: variables.$black-bg;
+  }
+
+  .add-btn-container {
+    flex: 2;
     @include variables.addBtn();
     @include variables.outerStyle;
-    
-    &:hover{
-        background: color.scale(variables.$add-bg, $lightness: 50%);
-
+  
+    &:hover {
+      background: color.scale(variables.$add-bg, $lightness: 50%);
     }
+  }
 }
 
-
-.header-container{
-    @include variables.flexContainer(row);
-    @include variables.headerFont();
-    padding-left: 1rem;
-    @include variables.columnSize();
-    border-radius: .1em;
-    justify-content: space-between;
-    background-color: variables.$black-bg;
-    margin-bottom: .5rem;
+.all-time-header {
+  @include variables.center();
+  @include variables.headerFont();
+  padding: 0 1rem 0 1rem;
+  @include variables.columnSize();
+  border-radius: .1em;
+  justify-content: space-between;
+  background-color: variables.$black-bg;
+  margin-bottom: .5rem;
+}
+.view-games-btns {
+  @include variables.flexContainer();
+  flex-direction: row;
+}
+.view-games {
+  @include variables.center();
+  @include variables.propertyFont();
+  font-size: .7rem;
+  @include variables.smallMatchContainer;
+  color: variables.$black-bg;
+  flex: 1;
+}
+.add-match-bar {
+  @include variables.smallMatchContainer();
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: .5rem;
 }
 
-.all-time-header{
-    @include variables.center();
-    @include variables.headerFont();
-    padding: 0 1rem 0 1rem;
-    @include variables.columnSize();
-    border-radius: .1em;
-    justify-content: space-between;
-    background-color: variables.$black-bg;
-    margin-bottom: .5rem;
+.add-number {
+  width: 2rem;
+  height: 2rem;
+  background-color: variables.$card-grey;
+  @include variables.smallFont;
+  color: black;
+  border-radius: .2em;
+  text-align: center;
 }
-.add-match-bar{
-    @include variables.smallMatchContainer();
-    justify-content: space-between;
-    align-items: center;
-    
-   
-    margin-bottom: .5rem;
-
+.add-player {
+  background-color: variables.$card-grey;
+  width: 6rem;
+  height: 2rem;
+  border-radius: .2em;
+  @include variables.smallFont;
+  color: variables.$black-bg;
 }
 
-.add-number{
-    width: 2rem;
-    height: 2rem;
-    background-color: variables.$card-grey;
-    @include variables.smallFont;
-    color: black;
-    border-radius: .2em;
-    text-align: center;
+.add-teamOne-header {
+  background-color: variables.$win-bg;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  border-right: 1px solid rgb(44, 44, 44);
 }
-.add-player{
-    background-color: variables.$card-grey;
-    width: 6rem;
-    height: 2rem;
-    border-radius: .2em;
-    @include variables.smallFont;
-    color: variables.$black-bg;
+.vs {
+  @include variables.center;
+  flex: .2;
+  background-color: variables.$black-bg;
 }
-
-.add-teamOne-header{
-    background-color: variables.$win-bg;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex: 1;
-    border-right: 1px solid rgb(44, 44, 44);
+.add-teamTwo-header {
+  background-color: variables.$loose-bg;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
 }
-.vs{
-    @include variables.center;
-    flex: .2;
-    background-color: variables.$black-bg;
-}
-.add-teamTwo-header{
-    background-color: variables.$loose-bg;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex: 1;
-}
-.add-teamName{
-    height: 1.5rem;
-    
+.add-teamName {
+  height: 1.5rem;
 }
 
 @media only screen and (max-width: 786px) {
-    .all-time-container{
-        width: 100%;
-        height: 100%;
-    }
-    .matches-container{
-        height: 100%;
-        max-height: 20rem;
-        width: 100%;
-    }
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  .all-time-container {
+    width: 100%;
+    height: 100%;
+  }
+  .matches-container {
+    height: 100%;
+    max-height: 20rem;
+    width: 100%;
+  }
 
-    .add-player{
-        width: 100%
-    }
+  .add-player {
+    width: 100%;
+  }
 }

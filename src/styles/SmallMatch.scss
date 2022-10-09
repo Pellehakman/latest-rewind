@@ -27,6 +27,7 @@
     flex: 1;
 }
 .info-box{
+    flex: 1;
     padding: 1rem;
     background-color: variables.$card-col2;
     border-bottom: 4px solid variables.$card-grey;
@@ -38,22 +39,19 @@
     display: flex;
     @include variables.headerFont();
     @include variables.center();
-    flex: 4
-    
+    flex: 4   
 }
 .small-match-headerWin{
     display: flex;
     @include variables.headerFont();
     @include variables.center();
     padding: 0 1rem 0 1rem;
-    flex: 1
-    
+    flex: 1  
 }
 
 .small-match-date{
     @include variables.headerFont();
-    font-size: 1rem;
-    
+    font-size: 1rem;    
 }
 
 .small-match-time{
@@ -61,10 +59,10 @@
     font-size: .8rem;
     font-weight: 400;
 }
+
 .drowdown-container{
     position: relative;
-    @include variables.center();
-    
+    @include variables.center();  
     flex: 1;
 }
 .dropdown{
@@ -73,42 +71,29 @@
     color: white;
     transition:.1s all;
     &:hover {
-        transform: scale(120%)
-		
+        transform: scale(120%)	
 	}
-    
-
 }
 .dropdown-delete{
     width: 2rem;
-    height:2rem;
-    
+    height:2rem; 
     color: white;
-    
     transition:.1s all;
     &:hover {
-        transform: scale(90%)
-		
+        transform: scale(90%)	
 	}
-    
-
 }
-
-
 
 
 .small-overlay{
     @include variables.flexContainer(row);
 }
 
-
-
 .divider{
     width: .1em;
-    
     background-color: black;
-
 }
+
 .team-small-container{
     display: flex;
     flex-direction: column;
@@ -131,9 +116,7 @@
    display: flex;
     background-color: variables.$loose-bg;
     flex:1;
-    
-    @include variables.propertyFont
-    
+    @include variables.propertyFont   
 }
 
 .player-container{
@@ -141,9 +124,7 @@
     border-bottom: .1em black solid;
     height: 1.9rem;
     justify-content: space-evenly;
-    @include variables.smallFont;
-    
-    
+    @include variables.smallFont;  
 }
 
 .big-match-btn-container{
@@ -152,35 +133,37 @@
 }
 
 .map-btn{
+    flex: 1;
     @include variables.deleteBtn();
     background-color: variables.$card-col2;
-    border-bottom: 4px solid variables.$card-grey;
-
+    border-top: 4px solid variables.$card-grey;
 }
+
 .date-btn{
+     flex: 1;
     @include variables.deleteBtn();
-    background-color: variables.$card-col2;
-    border-bottom: 4px solid variables.$card-grey;
+    background-color: variables.$card-col2;  
+    border-top: 4px solid variables.$card-grey;
 
 }
 .delete-btn{
     @include variables.deleteBtn();
-
-
+    border-top: 4px solid variables.$card-grey;
 }
 .close-btn{
     @include variables.deleteBtn();
     flex: 7;
     background-color: variables.$card-col2;
     border-left: 4px solid variables.$card-grey;
+    border-top: 4px solid variables.$card-grey;
 
 
 }
-.save-btn{
+.save-btn{  
     @include variables.deleteBtn();
-    background-color: variables.$add-bg
-
-
+    background-color: variables.$add-bg;
+    border-left: 4px solid variables.$card-grey;
+    border-top: 4px solid variables.$card-grey;
 }
 
 .big-match-container{
@@ -190,23 +173,17 @@
     justify-content: space-between;
     background-color: variables.$match-bg;
     margin-bottom: .5rem;
-
-    cursor: pointer;
-    
-    @include variables.outerStyle
-    
-    
-   
-    
+    @include variables.outerStyle 
 }
+
 .team-names-container{
     @include variables.smallMatchContainer();
-   
     @include variables.headerFont();
     border-bottom: 1px solid rgb(44, 44, 44);
     
 }
 .teamOne-header{
+    cursor: pointer;
     background-color: variables.$win-bg;
     display: flex;
     align-items: center;
@@ -215,11 +192,13 @@
     border-right: 1px solid rgb(44, 44, 44);
 }
 .teamTwo-header{
+    cursor: pointer;
     background-color: variables.$loose-bg;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex:1;
+    flex: 1;
+    border-right: 1px solid rgb(44, 44, 44);
 }
 .team-big-container{ 
     display: flex;
@@ -231,8 +210,7 @@
     display: flex;
     flex-direction: row;
     flex: 1;
-    justify-content: space-between; 
-    
+    justify-content: space-between;    
 }
 
 .b-m-row{
@@ -244,8 +222,7 @@
 .b-m-col{
     display: flex;
     flex-direction: column;
-    flex: 1;
-    
+    flex: 1;   
     font-weight: 600;
     justify-content: center;
 }
@@ -254,12 +231,10 @@
     background-color: variables.$card-col2;
     @include variables.propertyFont;
     padding: .3rem;   
-
     border-bottom: 4px solid variables.$card-grey;
 }
 
-.b-m-kills{
-    
+.b-m-kills{  
     padding: .3rem;
     display: flex;  
     background-color: variables.$card-col2;
@@ -288,22 +263,33 @@
     @include variables.center();
     display: flex;
     flex:1;
-    padding: .5rem;
-    border-bottom: 4px solid variables.$card-grey;
+    padding: .5rem;  
 }
 
 .items{ 
+    cursor: pointer;
     @include variables.SmallCardFont();
     @include variables.center();
     padding: .5rem;
     display: flex;
     flex:1; 
-    border-bottom: 4px solid variables.$card-grey;
+    
 }
-
 .big-divider{
     width: 4px;
     background-color: variables.$card-grey;
 }
 
-
+@media only screen and (max-width: 786px) {
+    .items{ 
+        @include variables.SmallCardFont();
+        font-size: .8rem;
+        @include variables.center();
+        justify-content: flex-start;
+        width: 4rem;
+        padding: .5rem;
+        display: flex;
+        flex:1; 
+        
+    }
+}

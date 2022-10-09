@@ -6,7 +6,7 @@ export interface Match{
     playerOneWinner: string;
     playerTwoWinner: string
     players: {
-        playerOne: string;
+        playerOne: any;
         playerId?: number
         playerOneK: any;
         playerOneD: any;
@@ -17,7 +17,7 @@ export interface Match{
    
 }
 
-export interface AllTimeData{
+export type AllTimeData = {
     
     allTimeName: string;
     allTimeKills: number;

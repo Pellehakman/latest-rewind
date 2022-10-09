@@ -1,8 +1,7 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { AllTimeData, Match } from '../models/data';
 import '../styles/SmallMatch.scss'
 import { GiExpand } from "react-icons/gi";
-import '../styles/Bigmatch.scss'
 
 type Props = {
     match: Match
@@ -10,19 +9,14 @@ type Props = {
     setMatches: React.Dispatch<React.SetStateAction<Match[]>>
     setSendData: any
 }
-
 const SmallMatch = ({ match, matches, setMatches, setSendData }: Props) => {
-
-    
 
     const [overlay, setOverlay] = useState<boolean>(false);
     const [hide, setHide] = useState<boolean>(true);
-  
-    const handleBigMatchOverlay: () => void = () => {
-        setHide(!hide); setOverlay(!overlay);}
-             
-    const handleDelete = (matchId: number) => {
-        setMatches(matches.filter((match) => match.matchId !== matchId))}
+
+    const handleBigMatchOverlay: () => void = () => {setHide(!hide); setOverlay(!overlay)};
+
+    const handleDelete = (matchId: number) => { setMatches(matches.filter((match) => match.matchId !== matchId))}
 
     const handlePlayerOne: (e: any) => void = (e: any) => {
         
@@ -43,9 +37,6 @@ const SmallMatch = ({ match, matches, setMatches, setSendData }: Props) => {
                     return obj.playerOneWinner === `LOOSE`})
                 let totalLoose = looseAmount.length
 
-                // console.log(totalLoose, totalDraw, totalWin)
-
-
        function sum(obj: any) {
             let sum = 0;
             for (let kill in obj) {
@@ -65,17 +56,16 @@ const SmallMatch = ({ match, matches, setMatches, setSendData }: Props) => {
             totalLoose: totalLoose,
         }
         setSendData(allTimeData);
-        // console.log(allTimeData)        
+          
 }
-//LÄGG ALLT I MATCEHS SOM VANLIGT OCH RENSA DET SOM VAR.
+
 const handlePlayerTwo: (e: any) => void = (e: any) => {
         
     let playerOneClick = (e.target.outerText)
     let specPlayerMatch = matches.filter(obj => {
         return obj.players.playerTwo === `${playerOneClick}`}).slice(0, 10)
         const specPlayerStats = specPlayerMatch.map((obj) => obj.players.playerTwoK);
-
-        
+   
         let winAmount = specPlayerMatch.filter(obj => {
             return obj.playerTwoWinner === `WIN`})
         let totalWin = winAmount.length
@@ -87,8 +77,6 @@ const handlePlayerTwo: (e: any) => void = (e: any) => {
             let looseAmount = specPlayerMatch.filter(obj => {
                 return obj.playerTwoWinner === `LOOSE`})
             let totalLoose = looseAmount.length
-
-            
 
    function sum(obj: any) {
         let sum = 0;
@@ -108,17 +96,13 @@ const handlePlayerTwo: (e: any) => void = (e: any) => {
         totalDraw: totalDraw,
         totalLoose: totalLoose,
     }
-    setSendData(allTimeData);
-          
+    setSendData(allTimeData);         
 }
-
-
-
-
 
     return (
         <section className='small-match-conainer' >
             {hide &&
+            //---------------//SMALL CARD---------------//
                 <div className='small-match'>
                     <div className='small-match-display'>
                         <div className='small-match-time-container'>
