@@ -17,6 +17,7 @@ interface Props {
     match: Match;
     setSendData: React.Dispatch<React.SetStateAction<AllTimeData[]>>
     sendData: AllTimeData
+
    
     setWin: boolean
    
@@ -40,7 +41,7 @@ const Home: React.FC<Props> = () => {
     const [matches, setMatches] = useLocalStorage<Match[]>('matches',[])
     const [playerMatches, setPlayerMatches] = useState<Match[]>([])
     console.log(playerMatches)
-
+    const [filterOverlay, setFilterOverlay] = useState<boolean>(true);
 
 
 
@@ -112,7 +113,7 @@ const handlePlayerMatches: (e: any) => void = () => {
         return obj.players.playerOne === `${playerOneClick}`})
 
         setPlayerMatches(showPlayerMatch)
-
+        setFilterOverlay(!filterOverlay)
 
 
 
@@ -239,7 +240,11 @@ return (
         matches={matches} 
         setMatches={setMatches} 
         setSendData={setSendData}
+        filterOverlay={filterOverlay}
+        playerMatches={playerMatches}
+        setPlayerMatches={setPlayerMatches}
         // setAllTime={setAllTime}
+        
         />
 
 
