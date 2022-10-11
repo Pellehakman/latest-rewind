@@ -1,7 +1,6 @@
 import './App.css'
 import { Routes, Route } from 'react-router-dom'
 import Home from './views/home'
-import jsonData from './data/data.json'
 import newData from './data/new.json'
 import Nav from './components/Nav'
 import Footer from './components/Footer'

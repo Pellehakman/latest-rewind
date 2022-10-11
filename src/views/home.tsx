@@ -4,17 +4,12 @@ import { AllTimeData, Match } from '../models/data';
 import '../styles/Home.scss'
 import useLocalStorage from '../components/hooks/use-local-storage';
 
-interface Props {
-    match: Match;
+// interface Props {
+//     match: Match;
+//     sendData: AllTimeData 
+// };
 
-    sendData: AllTimeData
-
-    
-    
-  
-};
-
-const Home: React.FC<Props> = () => {
+const Home: React.FC = () => {
 
    
     const [matches, setMatches] = useLocalStorage<Match[]>('matches', [])

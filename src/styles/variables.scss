@@ -32,10 +32,10 @@ body{
    
 }
 @mixin headerFont {
-font-family: $primary-font;
-font-size: 1.4em;
-font-weight: 700;
-color: $white-bg;
+    font-family: $primary-font;
+    font-size: 1.4em;
+    font-weight: 700;
+    color: $white-bg;
 }
 
 @mixin propertyFont {
@@ -83,12 +83,8 @@ color: $white-bg;
     color: $white-bg;
     transition: .1s all;
 	cursor: pointer;
-    
-    // &:hover {
-    //     background-color: $add-bg;
-		
-	// }
 }
+
 @mixin deleteBtn() {
     flex: 1;
     border: none;
@@ -101,20 +97,15 @@ color: $white-bg;
     color: $white-bg;
     transition: .1s all;
 	cursor: pointer;
-	&:hover {
-		
-	}
 }
 
 @mixin smallMatchContainer {
     display: flex;
     height: 3rem;
-    
 }
 
 @mixin outerStyle{
     box-shadow: 1px 1px 1px rgb(122, 122, 122);
     border: 1px solid rgb(44, 44, 44);
     border-radius: 2px; 
-
 }

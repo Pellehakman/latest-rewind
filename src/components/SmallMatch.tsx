@@ -27,27 +27,23 @@ const SmallMatch = ({ match, matches, setMatches, setSendData }: Props) => {
         let playerMatches = slotOnePlayer.concat(slotTwoPlayer).slice(0, 10)
         console.log(playerMatches)
 
-
         const playerKills = playerMatches.map((obj) => obj.players.playerOneK);
 
             let slotOneWin = playerMatches.filter(obj => {
                 return obj.playerOneWinner === `WIN`})
                 let totalWin = slotOneWin.length
-
-                
+            
                 let slotOneLoose = playerMatches.filter(obj => {
                     return obj.playerOneWinner === `LOOSE`})
                     let totalLoose = slotOneLoose.length
-
 
                 let slotOneDraw = playerMatches.filter(obj => {
                 return obj.playerOneWinner === `DRAW`})
                 let totalDraw = slotOneDraw.length
                 
 
-            
-                
-                console.log(playerOneClick, 'has won', totalWin, 'times, and lost', totalLoose, 'times, and draw', totalDraw, 'times' )
+                       
+                // console.log(playerOneClick, 'has won', totalWin, 'times, and lost', totalLoose, 'times, and draw', totalDraw, 'times' )
        function sum(obj: any) {
             let sum = 0;
             for (let kill in obj) {

@@ -3,7 +3,7 @@
     "matchId": 1364637699360,
     "matchName": "MIRAMAR",
     "playerOneWinner": "WIN",
-    "playerTwowinner": "LOSE",
+    "playerTwoWinner": "LOSE",
     "players":{
         "playerOne": "PHAWKMAN",
         "playerOneK": 23,
@@ -167,5 +167,4 @@
     }
     
  }]
-    //TA BORT OCH FERLSÖK
-     
+ 
