@@ -19,24 +19,35 @@ const SmallMatch = ({ match, matches, setMatches, setSendData }: Props) => {
     const handleDelete = (matchId: number) => { setMatches(matches.filter((match) => match.matchId !== matchId))}
 
     const handlePlayerOne: (e: any) => void = (e: any) => {
-        
         let playerOneClick = (e.target.outerText)
-        let specPlayerMatch = matches.filter(obj => {
-            return obj.players.playerOne === `${playerOneClick}`}).slice(0, 10)
-            const specPlayerStats = specPlayerMatch.map((obj) => obj.players.playerOneK);
+        let slotOnePlayer = matches.filter(obj => {
+            return obj.players.playerOne === `${playerOneClick}`})
+        let slotTwoPlayer = matches.filter(obj => {
+            return obj.players.playerTwo === `${playerOneClick}`})
+        let playerMatches = slotOnePlayer.concat(slotTwoPlayer).slice(0, 10)
+        console.log(playerMatches)
 
-            let winAmount = specPlayerMatch.filter(obj => {
+
+        const playerKills = playerMatches.map((obj) => obj.players.playerOneK);
+
+            let slotOneWin = playerMatches.filter(obj => {
                 return obj.playerOneWinner === `WIN`})
-            let totalWin = winAmount.length
+                let totalWin = slotOneWin.length
 
-                let drawAmount = specPlayerMatch.filter(obj => {
-                    return obj.playerOneWinner === `DRAW`})
-                let totalDraw = drawAmount.length
-
-                let looseAmount = specPlayerMatch.filter(obj => {
+                
+                let slotOneLoose = playerMatches.filter(obj => {
                     return obj.playerOneWinner === `LOOSE`})
-                let totalLoose = looseAmount.length
+                    let totalLoose = slotOneLoose.length
 
+
+                let slotOneDraw = playerMatches.filter(obj => {
+                return obj.playerOneWinner === `DRAW`})
+                let totalDraw = slotOneDraw.length
+                
+
+            
+                
+                console.log(playerOneClick, 'has won', totalWin, 'times, and lost', totalLoose, 'times, and draw', totalDraw, 'times' )
        function sum(obj: any) {
             let sum = 0;
             for (let kill in obj) {
@@ -47,36 +58,42 @@ const SmallMatch = ({ match, matches, setMatches, setSendData }: Props) => {
             return sum;
         }
 
-        let summed = sum(specPlayerStats);
-        let allTimeData: AllTimeData = { 
+        let summed = sum(playerKills);
+        
+        let allTimeData = [{ 
             allTimeName: playerOneClick, 
             allTimeKills: summed,
             totalWin: totalWin,
             totalDraw: totalDraw,
             totalLoose: totalLoose,
-        }
-        setSendData(allTimeData);
-          
+        }]
+        setSendData(allTimeData);         
 }
 
 const handlePlayerTwo: (e: any) => void = (e: any) => {
-        
     let playerOneClick = (e.target.outerText)
-    let specPlayerMatch = matches.filter(obj => {
-        return obj.players.playerTwo === `${playerOneClick}`}).slice(0, 10)
-        const specPlayerStats = specPlayerMatch.map((obj) => obj.players.playerTwoK);
-   
-        let winAmount = specPlayerMatch.filter(obj => {
-            return obj.playerTwoWinner === `WIN`})
-        let totalWin = winAmount.length
+    let slotOnePlayer = matches.filter(obj => {
+        return obj.players.playerOne === `${playerOneClick}`})
+    let slotTwoPlayer = matches.filter(obj => {
+        return obj.players.playerTwo === `${playerOneClick}`})
+    let playerMatches = slotOnePlayer.concat(slotTwoPlayer).slice(0, 10)
 
-            let drawAmount = specPlayerMatch.filter(obj => {
-                return obj.playerTwoWinner === `DRAW`})
-            let totalDraw = drawAmount.length
+    const playerKills = playerMatches.map((obj) => obj.players.playerTwoK);
 
-            let looseAmount = specPlayerMatch.filter(obj => {
-                return obj.playerTwoWinner === `LOOSE`})
-            let totalLoose = looseAmount.length
+    let slotOneWin = playerMatches.filter(obj => {
+        return obj.playerTwoWinner === `WIN`})
+        let totalWin = slotOneWin.length
+
+        
+        let slotOneLoose = playerMatches.filter(obj => {
+            return obj.playerTwoWinner === `LOOSE`})
+            let totalLoose = slotOneLoose.length
+
+
+        let slotOneDraw = playerMatches.filter(obj => {
+        return obj.playerTwoWinner === `DRAW`})
+        let totalDraw = slotOneDraw.length
+        
 
    function sum(obj: any) {
         let sum = 0;
@@ -88,17 +105,17 @@ const handlePlayerTwo: (e: any) => void = (e: any) => {
         return sum;
     }
 
-    let summed = sum(specPlayerStats);
-    let allTimeData: AllTimeData = { 
+    let summed = sum(playerKills);
+    
+    let allTimeData = [{ 
         allTimeName: playerOneClick, 
         allTimeKills: summed,
         totalWin: totalWin,
         totalDraw: totalDraw,
         totalLoose: totalLoose,
-    }
+    }]
     setSendData(allTimeData);         
 }
-
     return (
         <section className='small-match-conainer' >
             {hide &&

@@ -19,7 +19,7 @@ export interface Match{
 
 export interface AllTimeData{
     
-    allTimeName?: string;
+    allTimeName: string;
     allTimeKills: number;
     totalWin: number;
     totalDraw: number

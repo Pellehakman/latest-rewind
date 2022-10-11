@@ -143,7 +143,7 @@
         "playerOne": "PHAWKMAN",
         "playerOneK": 42,
         "playerOneD": 13,
-        "playerTwo": "SNAKERS",
+        "playerTwo": "EKKANN",
         "playerTwoK": 13,
         "playerTwoD": 42
 
@@ -151,21 +151,21 @@
     
  },
  {
-    "date": "2022-10-20",
+    "date": "2022-10-29",
     "matchId": 1364637699369,
     "matchName": "ERANGEL",
-    "playerOneWinner": "LOOSE",
-    "playerTwoWinner": "WIN",
+    "playerOneWinner": "WIN",
+    "playerTwoWinner": "LOOSE",
     "players":{
         "playerOne": "PHAWKMAN",
-        "playerOneK": 13,
-        "playerOneD": 32,
-        "playerTwo": "EKKANN",
-        "playerTwoK": 32,
-        "playerTwoD": 13
+        "playerOneK": 42,
+        "playerOneD": 13,
+        "playerTwo": "SNAKERS",
+        "playerTwoK": 13,
+        "playerTwoD": 42
 
     }
     
  }]
-    
+    //TA BORT OCH FERLSÖK
      

@@ -7,14 +7,14 @@ import NewSmallMatch from "./NewSmallMatch";
 
 interface Props{
     matches: Array<Match>;
-    allTimeData: AllTimeData
     setMatches: React.Dispatch<React.SetStateAction<Match[]>>
     setSendData: React.Dispatch<React.SetStateAction<AllTimeData[]>>
     filterOverlay: boolean
+    hide: boolean
     playerMatches: Array<Match>;   
 }
 
-const MatchList: React.FC<Props> = ({ matches, setMatches, setSendData, filterOverlay, playerMatches }) => {
+const MatchList: React.FC<Props> = ({ matches, setMatches, setSendData, filterOverlay, playerMatches, hide }) => {
     return(<div className="match-list-container">
 
         {filterOverlay && <>
@@ -28,7 +28,7 @@ const MatchList: React.FC<Props> = ({ matches, setMatches, setSendData, filterOv
         />))} 
         </>}
         
-        {<> {playerMatches.map(match => (
+        {hide && <> {playerMatches.map(match => (
             <NewSmallMatch 
             match={match}
             key={match.matchId}

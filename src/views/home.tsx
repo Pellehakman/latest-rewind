@@ -6,36 +6,46 @@ import useLocalStorage from '../components/hooks/use-local-storage';
 
 interface Props {
     match: Match;
-    setSendData: React.Dispatch<React.SetStateAction<AllTimeData[]>>
-    sendData?: AllTimeData[]
-    setWin: boolean
-    playerOneClick: string
-    allTimeName: AllTimeData
+
+    sendData: AllTimeData
+
     
     
+  
 };
 
 const Home: React.FC<Props> = () => {
 
-    const [overlay, setOverlay] = useState<boolean>(false);
+   
     const [matches, setMatches] = useLocalStorage<Match[]>('matches', [])
     const [playerMatches, setPlayerMatches] = useState<Match[]>([])
-    const [filterOverlay, setFilterOverlay] = useState<boolean>(true);
+    
     const [date, setDate] = useState<string>("")
     const [matchName, setMatchName] = useState<string>("ERANGEL")
     const [sendData, setSendData] = useState<AllTimeData[]>([])
-
-
     const [playerOne, setPlayerOne] = useLocalStorage('player', [])
     const [playerOneK, setPlayerOneK] = useState<number>(0);
     const [playerOneD, setPlayerOneD] = useState<number>(0);
     const [playerTwo, setPlayerTwo] = useState<string>("")
     const [playerTwoK, setPlayerTwoK] = useState<number>(0);
     const [playerTwoD, setPlayerTwoD] = useState<number>(0);
-    const handleAddMatchOverlay: () => void = () => { setOverlay(!overlay); }
+
+    const [hide, setHide] = useState<boolean>(false);
+    const [filterOverlay, setFilterOverlay] = useState<boolean>(true);
+    const [overlay, setOverlay] = useState<boolean>(false);
+  
+    const handleAddMatchOverlay: () => void = () => {setOverlay(!overlay) }
 
     const handleSubmit: (e: any) => void = (e: any) => {
         e.preventDefault();
+
+    // if (playerOneD > playerTwoD){
+    //     console.log('plauer one loose')
+    // }
+            
+    
+
+
 
         function playerOneWin() {
             if (playerOneK > playerTwoK) {
@@ -49,8 +59,9 @@ const Home: React.FC<Props> = () => {
             }
             return ""
         }
+       
         const playerOneWinner = playerOneWin()
-        console.log(playerOneWinner)
+       
 
 
         function playerTwoWin() {
@@ -77,28 +88,27 @@ const Home: React.FC<Props> = () => {
 
     const handlePlayerMatches: (e: any) => void = () => {
 
-        let playerOneClick = sendData.allTimeName
-        console.log(typeof playerOneClick)
+        let playerOneClick = sendData.map(f => f.allTimeName)
 
-        if (playerOneClick.length < 0) {
-            console.log('no matches')
-        } else {
-            let showPlayerMatch = matches.filter(obj => {
-                return obj.players.playerOne === `${playerOneClick}`
-            })
-            setPlayerMatches(showPlayerMatch)
-            setFilterOverlay(!filterOverlay)
+        let showPlayerOneMatch = matches.filter(obj => {
+                    return obj.players.playerOne === `${playerOneClick}`
+        })
 
-            if (showPlayerMatch.length < 1) {
-                let showPlayerMatch = matches.filter(obj => {
+        let showPlayerTwoMatch = matches.filter(obj => {
                     return obj.players.playerTwo === `${playerOneClick}`
-                })
-                setPlayerMatches(showPlayerMatch)
-                setFilterOverlay(!filterOverlay)
-            }
-        }
+        })
+
+        let newArr = showPlayerOneMatch.concat(showPlayerTwoMatch)
+        setPlayerMatches(newArr)
+        setFilterOverlay(!filterOverlay)
+        setHide(!hide)
+
+
     }
 
+
+  
+    
     return (
         <section className='home-container'>
 
@@ -217,8 +227,9 @@ const Home: React.FC<Props> = () => {
                         setMatches={setMatches}
                         setSendData={setSendData}
                         filterOverlay={filterOverlay}
-                        playerMatches={playerMatches}
-                    />
+                        hide={hide}
+                        playerMatches={playerMatches} 
+                                        />
 
 
 
@@ -232,16 +243,30 @@ const Home: React.FC<Props> = () => {
 
                     </section>
 
-                    <div className='all-time-player'>{sendData.allTimeName}</div>
+                    <div className='all-time-player'>
+                        {/* {allTimeName} */}
+                        </div>
                     <div className='view-games-btns'>
-                        <button id="viewGames" className='view-games' onClick={handlePlayerMatches}>VIEW {sendData.allTimeName} GAMES/VIEW ALL</button>
+                        <button id="viewGames" className='view-games' onClick={handlePlayerMatches}>
+                            VIEW {sendData.map(f => f.allTimeName)} GAMES/VIEW ALL
+                            </button>
+                            
                     </div>
 
                     <div className='all-time-list'>
-                        <span>kills: {sendData.allTimeKills}</span>
-                        <span>wins: {sendData.totalWin}</span>
-                        <span>draw: {sendData.totalDraw}</span>
-                        <span>loose: {sendData.totalLoose}</span>
+                        <span>kills: 
+                            {sendData.map(f => f.allTimeKills)}
+                            </span>
+                        <span>wins: 
+                            {sendData.map(f => f.totalWin)}
+                            </span>
+                        
+                        <span>draw: 
+                            {sendData.map(f => f.totalDraw)}
+                            </span>
+                        <span>loose: 
+                            {sendData.map(f => f.totalLoose)}
+                            </span>
                     </div>
                 </div>
             </div>
